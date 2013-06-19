@@ -1,0 +1,1428 @@
+\documentclass[10pt,xcolor={usenames,dvipsnames}]{beamer}
+%\documentclass{beamer}
+%\documentclass{beamer}
+%\usepackage{BeamerColor}
+%\usetheme{Berkeley}
+%\usepackage[svgnames]{xcolor}
+
+%\usepackage{}
+%\usepackage[margin=3cm]{geometry}
+\usepackage{amssymb,amsmath,latexsym,amsthm}
+\usepackage{amssymb,latexsym}
+%\usepackage{wasysym}
+\usepackage[spanish,mexico,es-nolayout]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tkz-berge}
+%\usepackage{color}
+
+%\usepackage{xspace}
+%\usepackage{tocbibind}
+
+%\xcolor{dvipsnames}
+\usepackage{geometry}
+%\geometry{bindingoffset=1cm}
+
+%\usepackage{color}
+%\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+%\usepackage[usenames,dvipsnames]{xcolor}
+%\usepackage{tocbibind}
+
+%\usepackage{qtree}
+%\mode<beamer>{\setbeamertemplate{blocks}[rounded][shadow=true]}
+
+
+
+%\usetheme{Warsaw}
+%
+%\setbeamertemplate{theorems}[numbered]
+\usetheme{Warsaw}
+\usecolortheme{seagull}
+%\useoutertheme{shadow}
+%\useoutertheme{smoothtree}
+%\useoutertheme{split}
+
+
+
+%\newtheorem*{GT}{Teorema de Grivaux, 2003}
+%\newtheorem*{CLT}{Teorema de Can Le, 2010}
+%\theoremstyle{Ejemplo}
+%\newtheorem*{ER}{Ejemplo: Rolewicz, 1969}
+%\theoremstyle{plain}
+%\newtheorem*{thm}{Theorema}
+
+%\newtheorem*{prop}{Proposition}
+
+\newtheorem*{teo}{Teorema}
+\newtheorem*{cor}{Corolario}
+\newtheorem*{prop}{Proposición}
+
+
+
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+%\newcommand{\ltwo}{\ell^2}
+\newcommand{\ip}[2]{\left\langle #1 , #2 \right\rangle }
+\newcommand{\norm}[1]{\| #1 \|}
+
+\newcounter{questioncount}
+\setcounter{questioncount}{0}
+
+\newcounter{in}
+\newcounter{ini}
+
+
+\usetikzlibrary{arrows,shapes}
+% \newenvironment{question}
+% {\setbeamercolor{block title}{bg=green}
+% \stepcounter{questioncount}
+% \begin{block}{Question \arabic{questioncount}}}
+% {\end{block}}
+
+%\newenvironment{proposition}
+%{\begin{block}{Proposition}}
+%{\end{block}}
+
+
+\setlength{\parskip}{1 em}
+\setlength{\parindent}{0 in}
+\title{Buscando jaulas cúbicas a partir de gráficas de Cayley}
+\author{Citlalli Zamora Mejía}
+\institute{UAEH-CIMA-LIMA}
+
+\begin{document}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+
+\maketitle
+
+
+\section{Conseptos básicos}
+
+
+\begin{frame}
+{Definiciones}
+
+\begin{enumerate}
+\item Grupo
+\pause
+\item Grupo simétrio o de permutaciones
+\pause
+\item Grupo abeliano
+\pause
+\item Subgrupo
+\pause
+\item
+
+\end{enumerate}
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{alertblock}<+->{Teorema}
+Sean $G$ un grupo y $H$ un subconjunto no vacío de $G$. Entonces las
+  siguientes condiciones son equivalentes:
+  \begin{enumerate}
+  \item $H$ es un subgrupo de $G$
+  \item \begin{enumerate}
+    \item Para todo $x,y \in H$, $xy\in H$
+    \item Para todo $x\in H$, $x^{-1}\in H$
+    \end{enumerate}
+  \item Para todo $x,y \in H$ se tiene $xy^{-1}\in H$
+  \end{enumerate}\label{teonodemos}
+\end{alertblock}
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{alertblock}<-+>{Teorema}
+La intersección de subgrupos de un grupo también es un subgrupo. 
+\end{alertblock}
+
+\begin{enumerate}
+\item Subgrupo generado por un conjunto
+
+\item Orden del grupo
+
+\item Orden de un elemento
+
+\item Isomorfismo de grupos
+
+\item Automorfismo
+
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{alertblock}<-+>{Teorema de Lagrange}
+Si $H$ es un subgrupo de un grupo finito $G$, entonces:\label{TeoLagrange}
+$$|G|=|H|[G:H]$$
+\end{alertblock}
+\end{frame}
+
+
+\section{Jaulas cúbicas}
+
+
+\begin{frame}{Cota de Moore}
+
+
+la cota
+\end{frame}
+
+
+
+\begin{frame}{Cuello Par}
+
+\begin{figure}[htb]
+    \centering
+    \begin{tikzpicture}[scale=0.3]
+      \SetUpVertex[MinSize=.2pt] \SetVertexNoLabel
+      \grSubtreeOfCage[RA=8.4,RB=2.5]{3}{6}
+       \grEmptyPath[x=-6,y=10,RA=12,prefix=a]{2}
+       \grEmptyPath[x=-8,y=12,RA=4,prefix=b]{2}
+       \grEmptyPath[x=4,y=12,RA=4,prefix=c]{2}
+       \grEmptyPath[x=-9,y=14,RA=2,prefix=d]{4}
+       \grEmptyPath[x=3,y=14,RA=2,prefix=e]{4}
+\Edges(d0,b0,a0,b1,d3)
+\Edges(e0,c0,a1,c1,e3)
+\Edges(d1,b0)
+\Edges(e1,c0)
+\Edges(d2,b1)
+\Edges(e2,c1)
+
+\draw(-6,6.5) node {.};\draw(-6,7.5) node {.};\draw(-6,8.5) node {.};
+\draw(6,6.5) node {.};\draw(6,7.5) node {.};\draw(6,8.5) node {.};
+\draw(-3,10) node {.};\draw(-1,10) node {.};
+\draw(1,10) node {.};\draw(3,10) node {.};
+
+
+  \draw(14,0.3) node {Primer nivel}; \draw(14,2.8) node {Segundo
+    nivel};\draw(14,5.3) node {Tercer nivel};\draw(14,10.3) node {Nivel
+    $n-2$};\draw(14,12.3) node {Nivel $n-1$};\draw(14,14.3) node {Último nivel};
+     %  \grSubtreeOfCage[RA=3,RB=1]{3}{5}
+    \end{tikzpicture}
+%    \caption{Árbol en una gráfica 3-regular de cuello par}\label{arbolpar}
+\end{figure}
+
+
+\begin{block}{}
+\begin{center}
+$\text{cota de Moore} = \sum^{m}_{i=1}2^i$
+\end{center}
+\end{block}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Cuello impar}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=0.3]
+      \SetUpVertex[MinSize=.2pt] \SetVertexNoLabel
+      \grSubtreeOfCage[RA=6,RB=2.5]{3}{5}
+       \grEmptyPath[x=-6,y=10,RA=12,prefix=a]{2}
+       \grEmptyPath[x=-8,y=12,RA=4,prefix=b]{2}
+       \grEmptyPath[x=4,y=12,RA=4,prefix=c]{2}
+       \grEmptyPath[x=-9,y=14,RA=2,prefix=d]{4}
+       \grEmptyPath[x=3,y=14,RA=2,prefix=e]{4}
+\Edges(d0,b0,a0,b1,d3)
+\Edges(e0,c0,a1,c1,e3)
+\Edges(d1,b0)
+\Edges(e1,c0)
+\Edges(d2,b1)
+\Edges(e2,c1)
+
+\draw(-6,6.5) node {.};\draw(-6,7.5) node {.};\draw(-6,8.5) node {.};
+\draw(6,6.5) node {.};\draw(6,7.5) node {.};\draw(6,8.5) node {.};
+\draw(-3,10) node {.};\draw(-1,10) node {.};
+\draw(1,10) node {.};\draw(3,10) node {.};
+
+
+  \draw(14,0.3) node {Primer nivel}; \draw(14,2.8) node {Segundo
+    nivel};\draw(14,5.3) node {Tercer nivel};\draw(14,10.3) node {Nivel
+    $n-2$};\draw(14,12.3) node {Nivel $n-1$};\draw(14,14.3) node {Último nivel};
+     %  \grSubtreeOfCage[RA=3,RB=1]{3}{5}
+    \end{tikzpicture}
+    %\caption{Árbol en una gráfica 3-regular de cuello impar}\label{arbolimpar}
+  \end{figure}
+
+\begin{block}{}
+\begin{center}
+$\text{cota de Moore} = 1 + 3\sum^m_{i=0} 2^i$
+\end{center}
+\end{block}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{$(3,4)$-jaula}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=.9]
+    \SetUpVertex[MinSize=2pt]\SetVertexNoLabel
+
+ \grSubtreeOfCage[RA=3.2,RB=1.6]{3}{4} \foreach \y in {0,1,2,3}{%
+      \setcounter{in}{\y} \stepcounter{in} 
+
+\draw (a1;\y)
+      node[below right]{$\alph{in}$}; })
+
+ \begin{pgfonlayer}{background}
+        \pause
+    \Edge[style={bend right},color=Mulberry](a1;2)(a1;0)
+\pause
+    \Edge[style={bend right},color=Mulberry](a1;3)(a1;0)
+\pause
+    \Edge[style={bend right},color=blue](a1;2)(a1;1) \Edge[style={bend left},color=blue](a1;1)(a1;3)
+\pause 
+
+ \draw (a0;0) node[below left]{$w_{0,0}$};
+ \draw (a0;1) node[below right]{$w_{0,1}$};
+  
+    \end{pgfonlayer}
+
+  \end{tikzpicture}
+%  \caption{} \label{arbol(3,4)}
+\end{figure}
+\only<5>{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=.7]
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+    \grCompleteBipartite[RA=3,RB=3,RS=3]{3}{3}
+  
+ \draw (a0) node[below left]{$w_{0,0}$};
+ \draw (a1) node[below left]{$c$};
+  \draw (a2) node[below left]{$d$};
+ \draw (b0) node[above left]{$a$};
+\draw (b1) node[above left]{$b$};
+\draw (b2) node[above left]{$w_{0,1}$};
+\end{tikzpicture}
+%  \caption{Bipartita completa $K_{3,3}$.} \label{K_3,3}
+\end{figure}}
+\end{frame}
+
+
+\begin{frame}{$(3,5)$-jaula}
+
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetUpVertex[MinSize=2pt] \SetVertexNoLabel
+    \grSubtreeOfCage[RA=3,RB=1.2]{3}{5} \foreach \y in {0,1,...,5}{%
+      \setcounter{in}{\y} \stepcounter{in} \draw (a2;\y) node[below right]{$\alph{in}$}; }
+    % \AssignVertexLabel{a2;0}{a}
+ \begin{pgfonlayer}{background}
+\pause
+    \Edges[style={bend left=30},color=Mulberry](a2;0,a2;2) 
+\pause
+\Edges[style={bend
+      left=30},color=Mulberry](a2;0,a2;4) 
+\pause
+\Edges[style={bend left=30},color=blue](a2;1,a2;3)
+    \Edges[style={bend left=30},color=blue](a2;1,a2;5)
+\pause
+    \Edges[style={bend left=30},color=purple](a2;2,a2;5)
+\pause
+    \Edges[style={bend left}=30,color=purple](a2;3,a2;4)
+
+% \pause
+% \draw (a0;0) node[left]{$w_{0,0}$};
+% \draw (a1;0) node[left]{$w_{1,0}$};
+% \draw (a1;1) node[left]{$w_{1,1}$};
+% \draw (a1;2) node[left]{$w_{1,2}$};
+\end{pgfonlayer}
+  
+\end{tikzpicture}
+%  \caption{} \label{jaula(3,5)}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Gráfica de Petersen}
+
+\begin{figure}
+  \centering
+\begin{minipage}[c]{.3\linewidth}
+  \begin{tikzpicture}[scale=.7]
+    \SetUpVertex[MinSize=2pt] \SetVertexNoLabel
+    \grSubtreeOfCage[RA=2.6,RB=1.3]{3}{5} \foreach \y in {0,1,...,5}{%
+      \setcounter{in}{\y} \stepcounter{in} \draw (a2;\y) node[below right]{$\alph{in}$}; }
+    % \AssignVertexLabel{a2;0}{a}
+    \Edges[style={bend left=30},color=Mulberry](a2;0,a2;2) \Edges[style={bend
+      left=30},color=Mulberry](a2;0,a2;4) \Edges[style={bend left=30},color=blue](a2;1,a2;3)
+    \Edges[style={bend left=30},color=blue](a2;1,a2;5)
+    \Edges[style={bend left=30},color=purple](a2;2,a2;5)
+    \Edges[style={bend left}=30,color=purple](a2;3,a2;4)
+\draw (a0;0) node[left]{$w_{0,0}$};
+\draw (a1;0) node[left]{$w_{1,0}$};
+\draw (a1;1) node[left]{$w_{1,1}$};
+\draw (a1;2) node[left]{$w_{1,2}$};
+  \end{tikzpicture}
+%  \caption{} \label{jaula(3,5)}
+
+ \end{minipage}
+  \hspace{3cm}
+  \begin{minipage}[c]{.4\linewidth}
+    \centering
+  \begin{tikzpicture}[rotate=90,scale=1]
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt] \grPetersen[RA=2,RB=1]
+    % \draw(-3,0) node {Petersen};
+\draw (a0) node[above]{$a$};
+\draw (a1) node[above left]{$c$};
+\draw (a2) node[below left]{$f$};
+\draw (a3) node[below right]{$w_{1,2}$};
+\draw (a4) node[above right]{$e$};
+\draw (b0) node[above left]{$w_{1,0}$};
+\draw (b1) node[above ]{$w_{1,1}$};
+\draw (b2) node[left]{$b$};
+\draw (b3) node[right]{$w_{0,0}$};
+\draw (b4) node[above]{$d$};
+  \end{tikzpicture}
+%  \caption{Gráfica de Petersen.} \label{petersen}\index{Gráfica de
+%    Petersen}
+
+ \end{minipage}
+\end{figure}
+
+
+\end{frame}
+
+
+
+\begin{frame}{$(3,6)$-jaula}
+
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=1.2]
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+    \grSubtreeOfCage[RA=5,RB=1]{3}{6}
+
+    \foreach \y in {0,1,...,7}{%
+      \setcounter{in}{\y} \stepcounter{in} \draw (a2;\y) node[below
+      right]{$\alph{in}$}; } 
+
+\begin{pgfonlayer}{background}
+\pause
+\Edges[style={bend left=40},color=Mulberry](a2;0,a2;4)
+    \Edges[style={bend left=40},color=Mulberry](a2;0,a2;6)
+\pause
+ \Edges[style={bend
+      left=40},color=blue](a2;1,a2;5) \Edges[style={bend
+      left=40},color=blue](a2;1,a2;7)
+\pause
+    \Edges[style={bend left=40},color=purple](a2;2,a2;4) \Edges[style={bend
+      left=40},color=purple](a2;2,a2;7)
+\pause
+\Edges[style={bend left=40},color=red](a2;3,a2;5)
+  \Edges[style={bend left=40},color=red](a2;3,a2;6)
+
+\end{pgfonlayer}
+
+  \end{tikzpicture}
+ % \caption{} \label{jaula(3,6)}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{Gráfica de Heawood}
+
+\begin{figure}
+  \centering
+\begin{minipage}[a]{.2\linewidth}
+  \begin{tikzpicture}[scale=.6]
+
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+    \grSubtreeOfCage[RA=4.5,RB=1.5]{3}{6}
+
+    \foreach \y in {0,1,...,7}{%
+      \setcounter{in}{\y} \stepcounter{in} \draw (a2;\y) node[below
+      right]{$\alph{in}$}; } 
+\Edges[style={bend left=40},color=Mulberry](a2;0,a2;4)
+    \Edges[style={bend left=40},color=Mulberry](a2;0,a2;6) \Edges[style={bend
+      left=40},color=blue](a2;1,a2;5) \Edges[style={bend left=40},color=blue](a2;1,a2;7)
+    \Edges[style={bend left=40},color=purple](a2;2,a2;4) \Edges[style={bend
+      left=40},color=purple](a2;2,a2;7)
+
+\Edges[style={bend left=40},color=red](a2;3,a2;5)
+  \Edges[style={bend left=40},color=red](a2;3,a2;6)
+
+
+\draw (a0;0) node[below left]{$w_{0,0}$};
+\draw (a0;1) node[below right]{$w_{0,1}$};
+\draw (a1;0) node[left]{$w_{1,0}$};
+\draw (a1;1) node[left]{$w_{1,1}$};
+\draw (a1;2) node[left]{$w_{1,2}$};
+\draw (a1;3) node[left]{$w_{1,3}$};
+
+
+  \end{tikzpicture}
+ \end{minipage}
+  \hspace{3cm}
+  \begin{minipage}[b]{.5\linewidth}
+    \centering
+  \begin{tikzpicture}[scale=.65]
+   
+    \SetVertexNoLabel \SetUpVertex[MinSize=1pt]
+    \grHeawood[RA=3]
+\draw (a4) node[above left]{$c$};
+\draw (a5) node[above left]{$e$};
+\draw (a6) node[above left]{$a$};
+\draw (a7) node[left]{$w_{1,0}$};
+\draw (a8) node[below left]{$b$};
+\draw (a9) node[below left]{$h$};
+\draw (a10) node[below left]{$w_{1,3}$};
+\draw (a11) node[below right]{$g$};
+\draw (a12) node[below right]{$d$};
+\draw (a13) node[below right]{$f$};
+\draw (a0) node[right]{$w_{1,2}$};
+\draw (a1) node[right]{$w_{0,1}$};
+\draw (a2) node[right]{$w_{0,0}$};
+\draw (a3) node[right]{$w_{1,1}$};
+  \end{tikzpicture}
+ \end{minipage}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{$(3,7)$-jaula}
+
+\begin{teo}
+La jaula $3$-regular de cuello 7 no alcanza su cota de Moore.
+\end{teo}
+
+\begin{block}{}
+\begin{equation*}
+ \text{ cota de Moore para la $(3,7)$-jaula}=22
+\end{equation*}
+\end{block}
+\end{frame}
+
+\begin{frame}{$(3,7)$-jaula}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=0.5]
+    \SetVertexNoLabel 
+\SetUpVertex[MinSize=.1pt]
+      \grSubtreeOfCage[RA=3,RB=1]{3}{7}  
+
+%% \foreach \y in
+ %    {0,1,...,11}{%
+ %      \setcounter{in}{\y} \stepcounter{in} \draw (a3;\y) node[below
+ %      right]{$\alph{in}$}; }
+
+    \grEmptyPath*[x=-1.5,y=5,RA=2.5,prefix=v]{,}
+ %   \AssignVertexLabel {v}{$v_1$,$v_2$}
+    % \draw(-2.5,2) node {primer rama}; \draw(0,1.3) node {segunda
+    % rama};
+
+\begin{pgfonlayer}{background}
+\only<2> {  
+\draw(0,-.5) node {$x$};
+\Edges(v0,v1)
+}
+\end{pgfonlayer}
+
+  \end{tikzpicture}
+%  \caption{} \label{arbol(3,7)mas2}
+\end{figure}
+
+\pause
+
+\begin{teo}
+Sea $G$ una gráfica $3$-regular de cuello $7$ con 24
+vértices. Entonces existe un vértice $x$ para el cual los dos vértices
+fuera del árbol que tiene como base a $x$, son adyacentes.
+\end{teo}
+
+\end{frame}
+
+
+\begin{frame}{$(3,7)$-jaula}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \SetVertexNoLabel { \SetUpVertex[MinSize=1.5pt]
+      \grSubtreeOfCage[RA=4,RB=1]{3}{7} } \foreach \y in
+    {0,1,...,11}{%
+      \setcounter{in}{\y} \stepcounter{in} \draw (a3;\y) node[below
+      right]{$\alph{in}$}; }
+    \grEmptyPath*[x=-2,y=5.4,RA=4,prefix=v]{$v_1$,$v_2$}
+    \AssignVertexLabel {v}{$v_1$,$v_2$} \Edges(v0,v1)
+  
+\begin{pgfonlayer}{background}
+\pause
+  \Edges[color=Brown](a3;0,v0,a3;4)
+\pause
+    \Edges[color=Brown](a3;2,v1)
+\pause
+    \Edges[style={bend left=30},color=red](a3;4,a3;8)
+\pause   
+ \Edges[style={bend left=30},color=red](a3;3,a3;8)
+\pause
+    \Edges[style={bend left=30},color=blue](a3;3,a3;6)
+\pause
+    \Edges[style={bend left=30},color=blue](a3;6,a3;10)
+\pause    
+    \Edges[style={bend left=30},color=Mulberry](a3;2,a3;11)
+    \Edges[style={bend left=30},color=Mulberry](a3;5,a3;11)
+    \Edges[style={bend left=30},color=Mulberry](a3;1,a3;5)
+    \Edges[style={bend left=30},color=BlueViolet](a3;1,a3;9)
+    \Edges[style={bend left=30},color=BlueViolet](a3;7,a3;9)
+    \Edges[color=BlueViolet](a3;7,v1) 
+    \Edges[style={bend left=30},color=WildStrawberry](a3;0,a3;10)
+
+\end{pgfonlayer}
+%    \draw(-3.2,.3) node {Primer rama}; \draw(0,.6) node {Segunda
+ %     rama}; \draw(3.2,.3) node {Tercer rama}; \draw(0,-.5) node {x};
+  \end{tikzpicture}
+\only<4>{
+  \caption{Jaula encontrada por McGee.} \label{jaula(3,7)}}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{Jaula encontrada por McGee}
+
+\begin{figure}
+  \centering
+\begin{minipage}[a]{.19\linewidth}
+  \begin{tikzpicture}[scale=.5]
+
+
+    \SetVertexNoLabel { \SetUpVertex[MinSize=1.5pt]
+      \grSubtreeOfCage[RA=4,RB=1.5]{3}{7} } \foreach \y in
+    {0,1,...,11}{%
+      \setcounter{in}{\y} \stepcounter{in} \draw (a3;\y) node[below
+      right]{$\alph{in}$}; }
+    \grEmptyPath*[x=-2,y=7,RA=4,prefix=v]{$v_1$,$v_2$}
+    \AssignVertexLabel {v}{$v_1$,$v_2$} \Edges(v0,v1)
+    \Edges[color=Brown](a3;0,v0,a3;4)
+    \Edges[color=Brown](a3;2,v1)
+    \Edges[style={bend left=30},color=blue](a3;4,a3;8)
+    \Edges[style={bend left=30},color=blue](a3;3,a3;8)
+    \Edges[style={bend left=30},color=blue](a3;3,a3;6)
+    \Edges[style={bend left=30},color=blue](a3;6,a3;10)
+    \Edges[style={bend left=30},color=Mulberry](a3;2,a3;11)
+    \Edges[style={bend left=30},color=Mulberry](a3;5,a3;11)
+    \Edges[style={bend left=30},color=Mulberry](a3;1,a3;5)
+    \Edges[style={bend left=30},color=BlueViolet](a3;1,a3;9)
+    \Edges[style={bend left=30},color=BlueViolet](a3;7,a3;9)
+    \Edges[color=BlueViolet](a3;7,v1) 
+    \Edges[style={bend left=30},color=WildStrawberry](a3;0,a3;10)
+
+
+\draw (a0;0) node[below left]{$w_{0,0}$};
+\draw (a1;0) node[left]{$w_{1,0}$};
+\draw (a1;1) node[left]{$w_{1,1}$};
+\draw (a1;2) node[left]{$w_{1,2}$};
+\draw (a2;0) node[left]{$w_{2,0}$};
+\draw (a2;1) node[left]{$w_{2,1}$};
+\draw (a2;2) node[left]{$w_{2,2}$};
+\draw (a2;3) node[left]{$w_{2,3}$};
+\draw (a2;4) node[left]{$w_{2,4}$};
+\draw (a2;5) node[left]{$w_{2,5}$};
+
+  \end{tikzpicture}
+ \end{minipage}
+  \hspace{3cm}
+  \begin{minipage}[b]{.5\linewidth}
+    \centering
+  \begin{tikzpicture}[scale=.44,rotate=90]
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt] \grMcGee[RA=5]%,RB=1]
+    
+
+\draw (a0) node[above]{$v_{1}$};
+\draw (a1) node[above left]{$a$};
+\draw (a2) node[above left]{$k$};
+\draw (a3) node[above left]{$g$};
+\draw (a4) node[above left]{$w_{2,3}$};
+\draw (a5) node[above left]{$w_{1,1}$};
+\draw (a6) node[left]{$w_{0,0}$};
+\draw (a7) node[below left]{$w_{1,0}$};
+\draw (a8) node[below left]{$w_{2,0}$};
+\draw (a9) node[below left]{$b$};
+\draw (a10) node[below left]{$j$};
+\draw (a11) node[below left]{$h$};
+\draw (a12) node[below left]{$v_2$};
+\draw (a13) node[below right]{$c$};
+\draw (a14) node[below right]{$w_{2,1}$};
+\draw (a15) node[below right]{$d$};
+\draw (a16) node[below right]{$i$};
+\draw (a17) node[below right]{$w_{2,4}$};
+\draw (a18) node[right]{$w_{1,2}$};
+\draw (a19) node[above right]{$w_{2,5}$};
+\draw (a20) node[above right]{$l$};
+\draw (a21) node[above right]{$f$};
+\draw (a22) node[above right]{$w_{2,2}$};
+\draw (a23) node[above right]{$e$};
+
+  \end{tikzpicture}
+ \end{minipage}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{$(3,8)$-jaula}
+\begin{figure}
+    \centering
+  \begin{tikzpicture}[scale=1.1]
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+    \grSubtreeOfCage[RA=5,RB=1]{3}{8}
+     \foreach \y in {0,1,...,15}{%
+      \setcounter{in}{\y} \stepcounter{in} \draw (a3;\y) node [below
+       right]{$\alph{in}$}; }
+\pause
+    \Edges[style={bend left=50},color=blue](a3;0,a3;8)
+    \Edges[style={bend left=50},color=blue](a3;0,a3;12) 
+   \Edges[style={bend left=50,color=Mulberry}](a3;1,a3;10)
+    \Edges[style={bend left=50},color=Mulberry](a3;1,a3;14)
+\pause
+    \Edges[style={bend left=50},color=RedViolet](a3;2,a3;9)
+    \Edges[style={bend left=50},color=red](a3;3,a3;11)
+    \Edges[style={bend left},color=RoyalBlue](a3;4,a3;8)
+    \Edges[style={bend left},color=RoyalBlue](a3;6,a3;12)
+\pause
+\only<4,6>{
+    \Edges[style={bend left,line width=3pt}](a3;7,a3;10)
+}
+
+\pause
+{\only<5>{
+
+    \GraphInit[vstyle=Shade]{
+    \Edges[style={bend right=35},color=OliveGreen](a3;7,a3;15)
+     \Edges(a3;15,a2;7,a3;14))
+\Edges[style={bend left=50,color=Mulberry}](a3;1,a3;10)
+    \Edges[style={bend left=50},color=Mulberry](a3;1,a3;14)
+    \Edges[style={bend left=40},color=OliveGreen](a3;7,a3;10)
+}
+}}
+
+\pause
+\pause
+\only<7>{ 
+   \Edges[style={bend left=40,line width=3pt},color=OliveGreen](a3;5,a3;10)
+}
+ \pause
+ \Edges[style={bend left=40},color=OliveGreen](a3;5,a3;10)
+   \Edges[style={bend left=40},color=OliveGreen](a3;7,a3;14)
+    \Edges[style={bend left=30},color=Mulberry](a3;4,a3;15)
+    \Edges[style={bend left=70},color=Mulberry](a3;6,a3;11)
+    \Edges[style={bend left=50},color=OrangeRed](a3;3,a3;15)
+    \Edges[style={bend left=60},color=OrangeRed](a3;2,a3;13)
+    \Edges[style={bend left=60},color=OrangeRed](a3;5,a3;13)
+    \Edges[style={bend left=60},color=OrangeRed](a3;7,a3;9)
+  \end{tikzpicture}             
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{$(3,8)$-jaula de Tutte}
+\begin{figure}
+  \centering
+\begin{minipage}[a]{.19\linewidth}
+  \begin{tikzpicture}[scale=.55]
+
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+    \grSubtreeOfCage[RA=5.5,RB=1.2]{3}{8}
+
+    \foreach \y in {0,1,...,15}{%
+      \setcounter{in}{\y} \stepcounter{in} \draw (a3;\y) node [below
+      right]{$\alph{in}$}; }
+
+    \Edges[style={bend left=50},color=blue](a3;0,a3;8)
+    \Edges[style={bend left=50},color=blue](a3;0,a3;12)
+    \Edges[style={bend left=50,color=Mulberry}](a3;1,a3;10)
+    \Edges[style={bend left=50},color=Mulberry](a3;1,a3;14)
+    \Edges[style={bend left=50},color=RedViolet](a3;2,a3;9)
+    \Edges[style={bend left=50},color=red](a3;3,a3;11)
+    \Edges[style={bend left},color=RoyalBlue](a3;4,a3;8)
+    \Edges[style={bend left},color=RoyalBlue](a3;6,a3;12)
+    \Edges[style={bend left=40},color=OliveGreen](a3;5,a3;10)
+    \Edges[style={bend left=40},color=OliveGreen](a3;7,a3;14)
+    \Edges[style={bend left=30},color=Mulberry](a3;4,a3;15)
+    \Edges[style={bend left=70},color=Mulberry](a3;6,a3;11)
+    \Edges[style={bend left=50},color=OrangeRed](a3;3,a3;15)
+    \Edges[style={bend left=60},color=OrangeRed](a3;2,a3;13)
+    \Edges[style={bend left=60},color=OrangeRed](a3;5,a3;13)
+    \Edges[style={bend left=60},color=OrangeRed](a3;7,a3;9)
+
+\draw (a0;0) node[left]{$w_{0,0}$};
+\draw (a0;1) node[right]{$w_{0,1}$};
+\draw (a1;0) node[left]{$w_{1,0}$};
+\draw (a1;1) node[left]{$w_{1,1}$};
+\draw (a1;2) node[left]{$w_{1,2}$};
+\draw (a1;3) node[left]{$w_{1,3}$};
+\draw (a2;0) node[below]{$w_{2,0}$};
+\draw (a2;1) node[below]{$w_{2,1}$};
+\draw (a2;2) node[below]{$w_{2,2}$};
+\draw (a2;3) node[below]{$w_{2,3}$};
+\draw (a2;4) node[below]{$w_{2,4}$};
+\draw (a2;5) node[below]{$w_{2,5}$};
+\draw (a2;6) node[below]{$w_{2,6}$};
+\draw (a2;7) node[below]{$w_{2,7}$};
+
+
+  \end{tikzpicture}
+ \end{minipage}
+  \hspace{3cm}
+  \begin{minipage}[b]{.5\linewidth}
+    \centering
+  \begin{tikzpicture}[scale=.43,rotate=95]
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt] \grTutteCoxeter[RA=5]%,RB=1]
+
+\draw (a0) node[above]{$w_{2,5}$};
+\draw (a1) node[above]{$l$};
+\draw (a2) node[above]{$d$};
+\draw (a3) node[above]{$p$};
+\draw (a4) node[above left]{$e$};
+\draw (a5) node[above left]{$i$};
+\draw (a6) node[above left]{$a$};
+\draw (a7) node[left]{$w_{2,0}$};
+\draw (a8) node[below left]{$w_{1,0}$};
+\draw (a9) node[below left]{$w_{2,1}$};
+\draw (a10) node[below left]{$c$};
+\draw (a11) node[below left]{$n$};
+\draw (a12) node[left]{$f$};
+\draw (a13) node[below left]{$w_{2,2}$};
+
+\draw (a14) node[below]{$w_{1,1}$};
+\draw (a15) node[below right]{$w_{0,0}$};
+\draw (a16) node[below right]{$w_{0,1}$};
+\draw (a17) node[below right]{$w_{1,2}$};
+\draw (a18) node[below right]{$w_{2,4}$};
+\draw (a19) node[right]{$j$};
+\draw (a20) node[right]{$h$};
+\draw (a21) node[right]{$w_{2,3}$};
+\draw (a22) node[right]{$g$};
+\draw (a23) node[right]{$m$};
+\draw (a24) node[right]{$w_{2,6}$};
+\draw (a25) node[right]{$w_{1,3}$};
+\draw (a26) node[right]{$w_{2,7}$};
+\draw (a27) node[above right]{$o$};
+\draw (a28) node[above right]{$b$};
+\draw (a29) node[above right]{$k$};
+
+  \end{tikzpicture}
+ \end{minipage}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{Jaulas cúbica}
+
+
+
+\only<2>{
+\begin{itemize}
+\item
+{Biggs y Hoare}
+\item
+{ Brendan McCay}
+\item
+{Brinkmann y Saager}
+\end{itemize}
+}
+
+
+\only<3>{
+\begin{itemize}
+\item
+{M. O'Keefe y P.K. Wong}
+\end{itemize}
+}
+
+
+\only<4>{
+\begin{itemize}
+\item
+{Brendan McKay y Wendy Myrvold}
+
+\end{itemize}
+}
+
+
+\only<6>{
+\begin{itemize}
+\item
+{Brendan McKay y Wendy Myrvold}
+\item{Miles Whitehead}
+\end{itemize}
+}
+
+
+\begin{table}
+\centering
+\begin{tabular}{cccc}
+\text{Jaula} & Cantidad & Cota de Moore & La más chica\\
+\hline
+\only<1-6>{
+$(3,3)$-jaula &1 & 4&4\\
+$(3,4)$-jaula & 1 &6&6\\
+$(3,5)$-jaula & 1 &10&10\\}
+$(3,6)$-jaula& 1  &14&14\\
+$(3,7)$-jaula& 1  &22&24\\
+$(3,8)$-jaula& 1  &30&30\\
+\pause 
+\alert<2>{$(3,9)$-jaula}&18 & 46&58\\
+\pause
+\alert<3>{$(3,10)$-jaula}& 3 &62 &70\\
+\pause
+\alert<4>{$(3,11)$-jaula}& 1 & 94 &112\\
+\pause
+\alert<5>{$(3,12)$-jaula}& 1 & 126&126\\
+\pause
+\alert<6>{$(3,13)$-jaula}&1+&190[202]&272\\
+\pause
+$(3,14)$-jaula & 1+ & 254[258] & 384\\
+$(3,15)$-jaula & 1+ & 382 & 620\\
+$(3,16)$-jaula & 1+ & 510 & 960\\
+$(3,17)$-jaula & 1+ & 766 & 2176\\
+$(3,18)$-jaula & 1+ & 1022 & 2640\\
+$(3,19)$-jaula & 1+ & 1534 & 4324\\
+$(3,20)$-jaula & 1+ & 2046 & 6048\\
+$(3,21)$-jaula & 1+ & 3070 & 16028\\
+$(3,22)$-jaula & 1+ & 4094 & 16206\\
+%$(3,23)$-jaula & 1+ & 6142 & 49482\\
+
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+\begin{frame}{Un método}
+\only<1>{
+\begin{block}{}
+Idear una forma de construir gráficas cúbicas
+\end{block}}
+\begin{itemize}
+\item Las jaulas de cuello par, que hasta el momento se conocen son bipartitas.
+\item La gráfica bipartita clanica del complemento de la gráfica de lineas de $K_6$ es la $(3,8)$-jaula.
+\end{itemize}
+
+\only<2-5>{
+\begin{columns}
+\column{.5\textwidth}
+\only<2-5>{
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=0.4,rotate=90]
+    \SetUpVertex[MinSize=10pt]
+
+    \SetVertexNoLabel{\grComplete[prefix=v,RA=3]{6}}
+\foreach \y in {0,1,...,5} { \setcounter{in}{\y+1} \stepcounter{in}
+  \draw (v\y) node{\y}; }
+\end{tikzpicture}
+\end{figure}
+}
+\column{.6\textwidth}
+\only<3-5>{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=0.5,rotate=90]
+    \SetUpVertex[MinSize=.1pt]
+    \SetVertexNoLabel{\grEmptyCycle[prefix=v,RA=3]{15}}
+
+ % { \foreach
+ %      \y in {0,1,...,5} { \setcounter{in}{\y+1} \stepcounter{in} \draw
+ %        (v\y) node[above]{{in}}; }}
+
+% \Vertex[x=-0,y=0]{w0} }
+  %  \Edges(w0,v1,v2,w0,v3,v4,w0,v5,v0,w0)
+
+    \draw (v0) node[above]{$(12)$};
+
+\only<4-5>{\AddVertexColor{black}{v0}}
+
+\only<3,4>{
+\draw (v1) node[left]{$(13)$};
+\draw (v2) node[ left]{$(14)$};
+\draw (v3) node[left]{$(15)$};
+\draw (v4) node[left]{$(16)$};
+\draw (v11) node[right]{$(13)$};
+\draw (v12) node[ right]{$(14)$};
+\draw (v13) node[right]{$(15)$};
+\draw (v14) node[right]{$(16)$};
+}
+\only<3,5>{
+\draw (v5) node[left]{$(56)$};
+\draw (v6) node[left]{$(34)$};
+\draw (v7) node[below left]{$(35)$};
+\draw (v8) node[below right]{$(46)$};
+\draw (v9) node[right]{$(45)$};
+\draw (v10) node[right]{$(36)$};
+}
+
+\only<4>{
+\Edges[color=BlueViolet](v1,v0,v2)
+\Edges[color=BlueViolet](v3,v0,v4)
+\Edges[color=BlueViolet](v11,v0,v12)
+\Edges[color=BlueViolet](v13,v0,v14)
+\AddVertexColor{blue}{v1,v2,v3,v4,v11,v12,v13,v14}}
+
+
+\only<5>{
+\AddVertexColor{violet}{v5,v6,v7,v8,v9,v10}
+\Edges[color=Violet](v5,v0,v6)
+\Edges[color=Violet](v7,v0,v8)
+\Edges[color=Violet](v9,v0,v10)
+}
+%\AddVertexColor{}{}
+
+
+  \end{tikzpicture}
+\end{figure}
+}
+\end{columns}
+}
+
+\only<6-7>{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=.7]
+    \SetVertexNoLabel 
+    \grEmptyCycle[prefix=v,RA=3]{6}
+      \Vertex[x=0,y=0]{w0} 
+   
+ %\Edges(w0,v1,v2,w0,v0,v5,w0,v3,v4,w0)
+\Edges[color=Violet,style={line width=1.5pt}](v0,w0,v5)
+\Edges[color=Violet,style={line width=1.5pt}](v1,w0,v2)
+\Edges[color=Violet,style={line width=1.5pt}](v3,w0,v4)
+
+\only<7>{
+\Edges[color=Violet,style={line width=1.5pt}](v0,v5)
+\Edges[color=Violet,style={line width=1.5pt}](v1,v2)
+\Edges[color=Violet,style={line width=1.5pt}](v3,v4)
+
+}
+   \draw (w0) node{$12$};
+ \draw (v2) node{$34$}; \draw (v1) node{$56$};
+    \draw (v0) node{$36$}; \draw (v5) node {$45$}; \draw (v3)  node{$35$}; \draw (v4) node {$46$};
+
+  \end{tikzpicture}
+%\only<7>{
+%  \caption{Vecindad cerrada de $\{1,2\}$.}\label{vecindadde12}}
+\end{figure}
+}
+\end{frame}
+
+\end{document}
+
+
+
+
+\begin{frame}
+  \frametitle{Flores}
+
+\begin{columns}
+\begin{column}{5cm}\vspace*{1cm}
+
+  \begin{itemize}
+  \item<1-|alert@1>{Rosa}
+  \item<2->{Azucena}
+  \item<3-|alert@3>{Margarita}
+  \end{itemize}
+
+
+\end{column}
+
+
+\begin{column}{5cm}
+\begin{center}
+
+\only<1>{hola aqui estoy}
+\only<3>{
+\begin{tabular}{|c|c|c|}
+\hline &H.S.$M$&No H.S.$M$
+\\ \hline
+H.S.$M^{\perp}$&$Ex3$&$Ex4$
+\\ \hline
+No H.S.$M^{\perp}$&$Ex4$&$\smiley$
+\\ \hline
+\end{tabular}
+}
+
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\end{document}
+
+
+\begin{frame}
+
+\begin{alertblock}<+->{Definición}
+Un operador  lineal acotado $T:\mathcal{H}\to\mathcal{H}$ se dice
+\textbf{hiperciclico} si para algún $x\in H$, $\text{Orb}(T,x)$ es
+densa en $\mathcal{H}$.
+\end{alertblock}
+
+\begin{alertblock}<+->{Definición}
+Un operador  lineal acotado $T:\mathcal{H}\to\mathcal{H}$ es
+\textbf{hiperciclico en un subespacio M} si existe un vector
+$x\in\mathcal{H}$ tal que $\text{Orb}(T,x)\bigcap M$ sea densa en
+$M$.
+\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{prop}<+->[Kitai, 1982]
+Si $T$ es invertible, $T$ es hiperciclico si y solo si $T^{-1}$ lo
+es.
+\end{prop}
+\end{frame}
+
+\begin{frame}
+
+
+\begin{alertblock}<+->{Definición}
+Un \textbf{desplazamiento bilateral con pesos } es un operador $T$
+donde $$T(\ldots,x_{-1},x_0,x_1,\ldots ) =
+(\ldots,a_{-2}x_{-1},a_{-1}x_0,a_0x_1,a_1x_2,a_2x_3,\ldots )$$ con
+$\{a_n\}_{n\in \Z}$ una sucesión acotada de números complejos.
+\end{alertblock}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+{ Para un subespacio $M$ de dimensión y codimención  infinitas que
+tipo de operadores invertibles existen?}
+
+\textbf{Hiperciclico en $\mathcal{H}$}
+\begin{tabular}{|c|c|c|}
+\hline &H.S.$M$ & No H.S.$M$
+\\ \hline
+H.S. $M^{\perp}$&$\smiley$&$?$
+\\ \hline
+No H.S.$M^{\perp}$&$?$&$?$
+\\ \hline
+\end{tabular}
+
+\vspace{15pt}
+
+\textbf{No Hiperciclico en $\mathcal{H}$}
+\begin{tabular}{|c|c|c|}
+\hline &H.S.$M$&No H.S.$M$
+\\ \hline
+H.S.$M^{\perp}$&$?$&$?$
+\\ \hline
+No H.S.$M^{\perp}$&$?$&$\smiley$
+\\ \hline
+\end{tabular}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{example}
+Define $A=\{\pm 0, \pm 1\}\bigcup\{\pm 4,\pm 6,\pm 8,\ldots\}$. Sea
+$M=\text{span}\{e_i\}_{|i|\in A}$.Entonces
+$M^{\perp}=\text{span}\{e_i\}_{|i|\notin A}$ Los elementos de $M$
+son de la forma $$x=(\ldots
+,x_{-3},0,x_{-2},0,0,x_{-1},x_0,x_1,0,0,x_2,0,x_3\ldots )$$ y los
+elementos de $M^{\perp}$ son $$y=(\ldots
+,0,y_{-3},0,y_{-2},y_{-1},0,0,0,y_1,y_2,0,y_3,0\ldots )$$ Entonces
+ningún desplazamiento bilateral con pesos hiperciclico es
+hipersiciclo en un subespacio $M$ o $M^{\perp}$.
+\end{example}
+
+\textbf{Hiperciclico en $\mathcal{H}$}
+\begin{tabular}{|c|c|c|}
+\hline &H.S.$M$ & No H.S.$M$
+\\ \hline
+H.S. $M^{\perp}$&$\smiley$&$?$
+\\ \hline
+No H.S.$M^{\perp}$&$?$&$Ex1$
+\\ \hline
+\end{tabular}
+
+
+\end{frame}
+
+
+\begin{frame}
+\begin{example}
+Define $A=\{0\}\bigcup\{\pm1,\pm3,\pm5,\ldots\}$. Sea
+$M=\text{span}\{e_i\}_{|i|\in A}$. Entonces
+$M^{\perp}=\text{span}\{e_i\}_{|i|\notin A}$. Los elementos de $M$
+son de la forma
+$$x=(\ldots ,0,x_{-2},0,x_{-1},0,0,0,x_1,0,x_2,0,\ldots )$$ y los de $M^{\perp}$ son $$y=(\ldots
+,y_{-3},0,y_{-2},0,y_{-1},\mathbf{y_0},y_1,0,y_2,0,y_3,\ldots )$$
+Entonces para algún $T$ un desplazamiento bilateral con pesos
+hiperciclico, $T$ es hiperciclico en  $M$ pero no hiperciclico en
+$M^{\perp}$.
+\end{example}
+
+\textbf{Hiperciclico en $\mathcal{H}$}
+\begin{tabular}{|c|c|c|}
+\hline &H.S.$M$ & No H.S.$M$
+\\ \hline
+H.S. $M^{\perp}$&$\smiley$&$Ex2$
+\\ \hline
+No H.S.$M^{\perp}$&$Ex2$&$Ex1$
+\\ \hline
+\end{tabular}
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{thm}[Salas, 1995]
+Sea $T$ un desplazamiento bilateral con pesos hacia atrás en
+$\ell^2(\Z)$ con su sucesión de pesos positivos y acotados
+$\{a_n\}$. Entonces $T$ es hiperciclico si y solo si dado $\epsilon
+>0 $y $q\in\Z $, existe una n arbitrariamente grande tal que para todo $\mid j\mid \leq
+q$,
+
+
+ $\Pi_{s=0}^{n-1}a_{s+j}>1/\epsilon $ y $\Pi_{s=1}^{n}a_{s-j}<\epsilon $
+
+\end{thm}
+
+\begin{thm}[Salas, 1995]
+
+Sean $T_1$ y $T_2$ desplazamientos bilaterales con pesos con
+sucesión de pesos $\{a_n\}$ y $\{b_n\}$. $T_1 \oplus T_2$ es
+hiperciclico si y solo si  dado $\epsilon > 0$ y $q \in \N$ existe
+una n suficientemente grande tal que para todo $\mid j\mid \leq q$
+
+$$
+\max \left\{ \prod_{k=0}^{n-1} a_{j+k}, \prod_{k=0}^{n-1} b_{j+k}
+\right\} < \epsilon ,\hspace{10pt} \min \left\{ \prod_{k=1}^{n}
+a_{j-k}, \prod_{k=1}^{n} b_{j-k} \right\} > 1/\epsilon
+$$
+
+\end{thm}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\begin{example}
+Define dos sucesiones bilaterales $$\{a_n\}_{n\in\Z}=\left\{\ldots
+,\frac{1}{2},\frac{1}{2},\frac{1}{2},2,2,\frac{1}{2},\textbf{1},2,\frac{1}{2},\frac{1}{2},2,2,2,\ldots\right\}$$
+$$\{b_n\}_{n\in\Z}=\left\{\ldots
+,2,2,2,\frac{1}{2},\frac{1}{2},2,\textbf{1},\frac{1}{2},2,2,\frac{1}{2},\frac{1}{2},\frac{1}{2},\ldots\right\}$$
+Define un operador $T=P\oplus R:\mathcal{H}_1\oplus\mathcal{H}_2\to
+\mathcal{H}_1\oplus\mathcal{H}_2$, donde $(Px)_i = a_i x_{i+1}$ y
+$(Rx)_i = b_i x_{i+1}$. $T$ es hiperciclico en el subespacio
+$\mathcal{H}_1$ y en $\mathcal{H}_2$, pero no es hiperciclico en
+todo el espacio $\mathcal{H}_1\oplus\mathcal{H}_2$.
+
+\end{example}
+
+
+\textbf{No Hiperciclico en $\mathcal{H}$}
+\begin{tabular}{|c|c|c|}
+\hline &H.S.$M$&No H.S.$M$
+\\ \hline
+H.S.$M^{\perp}$&$Ex3$&$?$
+\\ \hline
+No H.S.$M^{\perp}$&$?$&$\smiley$
+\\ \hline
+\end{tabular}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{example}
+Sea $M=\text{span}\{e_i\}_{i\text{impar}}$. Si $x\in M$, $x$ es de
+la forma $x=(\ldots ,0,x_{-2},0,x_{-1},0,x_1,0,x_2,0,\ldots)$.
+Entonces $M^{\perp}=\text{span}\{e_i\}_{i\text{par}}$. Define
+$T:\ell^2\to\ell^2$ tal que
+\[(Tx)_i=
+\left\{
+\begin{array}{lc}
+x_i&i \text{par}\\
+a_i x_{i+2}&i \text{impar}
+\end{array}
+\right. \text{donde\ } a_i=\left\{
+\begin{array}{ll}
+3&i>0\\
+\frac{1}{2}&i<0
+\end{array}
+\right.
+\]
+Esto es, si $x=(\ldots ,x_{-3},x_{-2},x_{-1},x_0,x_1,x_2,x_3,\ldots)$ entonces $Tx=(\ldots ,\frac{1}{2}x_{-1},x_{-2},\frac{1}{2}x_{1},x_0,3x_3,x_2,3x_5,\ldots)$.\\
+Entonces, $T$ es hiperciclico en el subespacio $M$ pero no
+hiperciclico y no hiperciclico en el subespacio $M^{\perp}$.
+
+\end{example}
+
+\textbf{No Hiperciclico en $\mathcal{H}$}
+\begin{tabular}{|c|c|c|}
+\hline &H.S.$M$&No H.S.$M$
+\\ \hline
+H.S.$M^{\perp}$&$Ex3$&$Ex4$
+\\ \hline
+No H.S.$M^{\perp}$&$Ex4$&$\smiley$
+\\ \hline
+\end{tabular}
+
+\end{frame}
+
+
+\section{Mas preguntas}
+
+\begin{frame}
+
+\setcounter{questioncount}{0}
+
+\begin{question}
+Si un operador invertible $T$ es hiperciclico en un subespacio $M$,
+es $T^{-1}$ hiperciclico en el subespacio $M$?
+\end{question}
+
+\pause
+
+\begin{question}
+Si $T$ es hiperciclico en un subespacio $M$, es $T^n$ hiperciclico
+en el subespacio $M$?
+\end{question}
+
+\pause
+
+
+\begin{question}
+Cada operador hiperciclico tiene un subespacio de codimensión
+infinita en donde este sea hiperciclico en el subespacio?
+\end{question}
+
+\end{frame}
+
+
+\begin{frame}
+\setbeamercolor{block title}{bg=cyan}
+\begin{block}{Referencias}
+\begin{enumerate}
+\footnotesize
+\item S. Grivaux, \textit{Construction of operators with prescribed behaviour,} Arch. Math. \textbf{81} (2003), 291-299.
+\item C. Kitai, \textit{Invariant closed sets for linear operators,} Thesis, Univ. of Toronto, Toronto, 1982.
+\item C. Le, \textit{On subspace hypercyclic operators,} private communication.
+\item B. F. Madore and R. A. Martinez-Avendano, \textit{Subspace Hypercyclicity,} 2010.
+\item S. Rolewicz, \textit{On orbits of elements,} Studia Math. \textbf{32} (1969), 17-22.
+\item H. Salas, \textit{Hypercyclic weighted shifts,} Trans. Amer. Math. Soc. \textbf{347} (1995), 993-1004.
+\item K. Saxe (2010) \textit{Beginning Functional Analysis,} Springer-Verlag New York, Inc.
+\item J. Shapiro (2001), \textit{Notes on the dynamics of linear operators,} Unpublished lecture notes (available online at www.math.msu.edu/~shapiro).
+\item N. Young (1988), \textit{An Introduction to Hilbert Space,} Cambridge University Press.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+
+\section{La experiencia}
+
+\begin{frame}
+{Forma de trabajo}
+\begin{enumerate}
+\item 4 grupos de trabajo de entre 3 y 4 personas mas un asesor
+\pause
+\item Horario de 10am a 5pm con una hora para almorzar
+\pause
+\item Una platica a fines del primer mes y una a fines del segundo
+para reportar avances
+\pause
+\item Platicas cada semana con profesores invitados
+\end{enumerate}
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[height=4.4057cm,width=5.8205cm]{grupo.jpg}
+\end{center}
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+{Cosas notables del lugar y sus habitantes}
+\begin{enumerate}
+\item Comida
+\pause
+\item Amabilidad
+\pause
+\item Salidas a caminatas muy largas
+\end{enumerate}
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[height=4.4057cm,width=5.8205cm]{caminar.jpg}
+\includegraphics[height=4.4057cm,width=5.8205cm]{camina.jpg}
+\end{center}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+{Paseos}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[height=3.5cm,width=5cm]{cbo.jpg}
+\includegraphics[height=3.5cm,width=5cm]{cr.jpg}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[height=4cm,width=5cm]{rb.jpg}
+\includegraphics[height=4cm,width=4cm]{ota.jpg}
+\end{center}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+{Gracias}
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[height=7.5cm,width=10cm]{grac.jpg}
+\end{center}
+\end{figure}
+
+
+\end{frame}
+
+\end{document}
