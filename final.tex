@@ -16,6 +16,7 @@
 \usepackage{tikz}
 \usepackage{tkz-berge}
 %\usepackage{color}
+\usetikzlibrary{decorations.pathmorphing,arrows}
 
 %\usepackage{xspace}
 %\usepackage{tocbibind}
@@ -97,13 +98,544 @@
 \begin{document}
 \pgfdeclarelayer{background}
 \pgfsetlayers{background,main}
-
-
 \maketitle
 
 
-\section{Conseptos básicos}
+\section{Gráficas}
 
+\begin{frame}
+
+\begin{alertblock}<+->{Gráfica}
+Una gráfica $\Gamma$ es un par ordenado de conjuntos finitos,
+  $\Gamma=(V(\Gamma),E(\Gamma))$, donde $V(\Gamma)$ es
+  llamado vértices\index{Vértice} de $\Gamma$ y $E(\Gamma)$ aristas de
+  $\Gamma$, tales que:
+  \begin{equation*}
+    E(\Gamma) \subseteq
+    V(\Gamma)^{(2)}:=\{e\subseteq V(\Gamma) \mid |e|=2\}
+  \end{equation*}
+\end{alertblock}
+
+\begin{columns}
+\column{.5\textwidth}
+\only<2-4>{
+\begin{itemize}
+\item<2-> Sin aristas dirigidas
+\item<3-> Sin lazos
+\item<4-> Sin aristas multiples
+\end{itemize}
+}
+\column{.5\textwidth}
+\only<2-4>{
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=0.4]
+    \SetUpVertex[MinSize=5pt]
+\only<2,4>{
+    \SetVertexNoLabel{\grEmptyPath[prefix=v,RA=8]{2}}
+\only<2>{\Edges[style={->,bend left},color=magenta](v0,v1,v0)}
+\only<4>{\Edges[style={bend left},color=violet](v0,v1,v0)}
+\AddVertexColor{Mulberry}{v0,v1}
+}
+
+\only<3>{
+\SetVertexNoLabel{\Vertex{v}}
+\draw[thick,color=blue](v) .. controls (0,2) and (8,2) .. (v);
+\AddVertexColor{Mulberry}{v}
+}
+
+\end{tikzpicture}
+\end{figure}
+}
+\end{columns}
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\only<1>{
+\begin{alertblock}{Gráfica Bipartita}
+Sea $B$ una gráfica. Si existen subconjuntos no vacíos $X$ y $Y$ de
+  $V(B)$ tales que:
+  \begin{enumerate}
+  \item $V(B)=X\cup Y$ y $X\cap Y=\emptyset$.
+  \item Si $x\sim y$ entonces $x\in X$ y $y\in Y$ o viceversa.
+  \end{enumerate}
+  entonces a $B$ se le conoce como gráfica bipartita. A los conjuntos
+  $X$ y $Y$ se les conoce como biparticion de $B$.
+\end{alertblock}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+\begin{scope}[shift={(1.5 cm,0)}]
+    \grEmptyPath[RA=3,RB=3,RS=3,prefix=v]{3}
+\end{scope}
+    \grEmptyPath[RA=3,RB=3,prefix=w]{4}
+\Edges[color=blue,style={line width=2pt}](w0,v0,w1,v1,w2,v2,w3,v1,w0)
+\AddVertexColor{Green}{v0,v1,v2}
+\AddVertexColor{RubineRed}{w0,w1,w2,w3}
+\end{tikzpicture}
+\end{figure}
+}
+\only<2>{
+\begin{alertblock}{Gráfica bipartita completa}
+Sean $X$ y $Y$ conjuntos tales que forman una biparticion de una
+gráfica bipartita $B$. Si dado $x\in V(B)$ para todo $y\in Y$ existe
+arista entre $x$ y $y$, se dice que $B$ es una gráfica bipartita completa.
+ % Dados $m$ y $n$ números enteros mayores o iguales a uno, la gráfica bipartita completa $K_{m,n}$ se define
+ %  como: $$K_{m,n}:=\overline{K_m \cup K_n}$$
+\end{alertblock}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+    \grCompleteBipartite[RA=3,RB=3,RS=3]{3}{3}
+\end{tikzpicture}
+  \caption{Bipartita completa $K_{3,3}$.}
+\end{figure}
+}
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{alertblock}{Gráfica $k$-regular}
+Una gráfica $G$ es $k$-regular si todos sus vértices son adyacentes a
+exactamente $k$ elementos.
+\end{alertblock}
+
+\begin{columns}
+\column{.5\textwidth}
+{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+ %   \grCycle[RA=3,RB=3,RS=3]{6}
+\grComplete[RA=1.5,RB=3]{6}
+\end{tikzpicture}
+ % \caption{Bipartita completa $K_{3,3}$.}
+\end{figure}
+\begin{alertblock}{Gráfica completa: $K_n$}
+  Una gráfica $G$ es completa si para todo par de vértices $x,y\in
+  V(G)$ existe arista entre ellos. Si $|V(G)|=n$ entonces $G$ es
+  denotada por $K_n$.
+\end{alertblock}
+}
+\column{.5\textwidth}
+{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+    \grCycle[RA=1.5,RB=3]{6}
+%\grComplete[RA=1.5,RB=3]{6}
+\end{tikzpicture}
+%  \caption{Bipartita completa $K_{3,3}$.}
+\end{figure}
+
+\begin{alertblock}{Ciclo de longitud $n$: $C_n$}
+Un ciclo de longitud $n$ es una sucesión
+  de vértices $v_1,...,v_n$ todos distintos entre sí, tales que
+  $v_i$ es adyacente a $v_{i+1}$ con $i=1...n-1$ y $v_1$ es adyacente
+  a $v_n$.
+\end{alertblock}
+}
+\end{columns}
+
+\end{frame}
+
+
+%\section{1}
+
+\begin{frame}{Gráfica $k$-regular}
+
+\begin{alertblock}{Teorema}
+En toda gráfica $G$, la suma de los grados de
+  sus vértices es igual al doble de la cantidad de aristas que tiene.
+  \begin{equation*}
+    \sum_{v\in V(G)}d_G(v)=2|E(G)|
+  \end{equation*}
+\end{alertblock}
+
+\begin{alertblock}{Corolario}
+Sea $G$ una gráfica $k$-regular con $k$ impar. Entonces el orden de
+  $G$ es par.
+\end{alertblock}
+
+\end{frame}
+
+
+\section{4}
+\begin{frame}
+
+\begin{alertblock}{}
+
+\end{alertblock}
+
+\end{frame}
+
+
+\section{Algoritmo}
+
+\begin{frame}
+\end{frame}
+
+\end{document}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+\section{Gráficas}
+
+\begin{frame}
+
+
+    \Edges[style={bend left=50},color=blue](a3;0,a3;8)
+    \Edges[style={bend left=50},color=blue](a3;0,a3;12)
+    \Edges[style={bend left=50,color=Mulberry}](a3;1,a3;10)
+    \Edges[style={bend left=50},color=Mulberry](a3;1,a3;14)
+    \Edges[style={bend left=50},color=RedViolet](a3;2,a3;9)
+    \Edges[style={bend left=50},color=red](a3;3,a3;11)
+    \Edges[style={bend left},color=RoyalBlue](a3;4,a3;8)
+    \Edges[style={bend left},color=RoyalBlue](a3;6,a3;12)
+    \Edges[style={bend left=40},color=OliveGreen](a3;5,a3;10)
+    \Edges[style={bend left=40},color=OliveGreen](a3;7,a3;14)
+    \Edges[style={bend left=30},color=Mulberry](a3;4,a3;15)
+    \Edges[style={bend left=70},color=Mulberry](a3;6,a3;11)
+    \Edges[style={bend left=50},color=OrangeRed](a3;3,a3;15)
+    \Edges[style={bend left=60},color=OrangeRed](a3;2,a3;13)
+    \Edges[style={bend left=60},color=OrangeRed](a3;5,a3;13)
+    \Edges[style={bend left=60},color=OrangeRed](a3;7,a3;9)
+
+\draw (a0;0) node[left]{$w_{0,0}$};
+\draw (a0;1) node[right]{$w_{0,1}$};
+\draw (a1;0) node[left]{$w_{1,0}$};
+\draw (a1;1) node[left]{$w_{1,1}$};
+\draw (a1;2) node[left]{$w_{1,2}$};
+\draw (a1;3) node[left]{$w_{1,3}$};
+\draw (a2;0) node[below]{$w_{2,0}$};
+\draw (a2;1) node[below]{$w_{2,1}$};
+\draw (a2;2) node[below]{$w_{2,2}$};
+\draw (a2;3) node[below]{$w_{2,3}$};
+\draw (a2;4) node[below]{$w_{2,4}$};
+\draw (a2;5) node[below]{$w_{2,5}$};
+\draw (a2;6) node[below]{$w_{2,6}$};
+\draw (a2;7) node[below]{$w_{2,7}$};
+
+
+  \end{tikzpicture}
+ \end{minipage}
+  \hspace{3cm}
+  \begin{minipage}[b]{.5\linewidth}
+    \centering
+  \begin{tikzpicture}[scale=.43,rotate=95]
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt] \grTutteCoxeter[RA=5]%,RB=1]
+
+\draw (a0) node[above]{$w_{2,5}$};
+\draw (a1) node[above]{$l$};
+\draw (a2) node[above]{$d$};
+\draw (a3) node[above]{$p$};
+\draw (a4) node[above left]{$e$};
+\draw (a5) node[above left]{$i$};
+\draw (a6) node[above left]{$a$};
+\draw (a7) node[left]{$w_{2,0}$};
+\draw (a8) node[below left]{$w_{1,0}$};
+\draw (a9) node[below left]{$w_{2,1}$};
+\draw (a10) node[below left]{$c$};
+\draw (a11) node[below left]{$n$};
+\draw (a12) node[left]{$f$};
+\draw (a13) node[below left]{$w_{2,2}$};
+
+\draw (a14) node[below]{$w_{1,1}$};
+\draw (a15) node[below right]{$w_{0,0}$};
+\draw (a16) node[below right]{$w_{0,1}$};
+\draw (a17) node[below right]{$w_{1,2}$};
+\draw (a18) node[below right]{$w_{2,4}$};
+\draw (a19) node[right]{$j$};
+\draw (a20) node[right]{$h$};
+\draw (a21) node[right]{$w_{2,3}$};
+\draw (a22) node[right]{$g$};
+\draw (a23) node[right]{$m$};
+\draw (a24) node[right]{$w_{2,6}$};
+\draw (a25) node[right]{$w_{1,3}$};
+\draw (a26) node[right]{$w_{2,7}$};
+\draw (a27) node[above right]{$o$};
+\draw (a28) node[above right]{$b$};
+\draw (a29) node[above right]{$k$};
+
+  \end{tikzpicture}
+ \end{minipage}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{Jaulas cúbica}
+
+
+
+\only<2>{
+\begin{itemize}
+\item
+{Biggs y Hoare}
+\item
+{ Brendan McCay}
+\item
+{Brinkmann y Saager}
+\end{itemize}
+}
+
+
+\only<3>{
+\begin{itemize}
+\item
+{M. O'Keefe y P.K. Wong}
+\end{itemize}
+}
+
+
+\only<4>{
+\begin{itemize}
+\item
+{Brendan McKay y Wendy Myrvold}
+
+\end{itemize}
+}
+
+
+\only<6>{
+\begin{itemize}
+\item
+{Brendan McKay y Wendy Myrvold}
+\item{Miles Whitehead}
+\end{itemize}
+}
+
+
+\begin{table}
+\centering
+\begin{tabular}{cccc}
+\text{Jaula} & Cantidad & Cota de Moore & La más chica\\
+\hline
+\only<1-6>{
+$(3,3)$-jaula &1 & 4&4\\
+$(3,4)$-jaula & 1 &6&6\\
+$(3,5)$-jaula & 1 &10&10\\}
+$(3,6)$-jaula& 1  &14&14\\
+$(3,7)$-jaula& 1  &22&24\\
+$(3,8)$-jaula& 1  &30&30\\
+\pause 
+\alert<2>{$(3,9)$-jaula}&18 & 46&58\\
+\pause
+\alert<3>{$(3,10)$-jaula}& 3 &62 &70\\
+\pause
+\alert<4>{$(3,11)$-jaula}& 1 & 94 &112\\
+\pause
+\alert<5>{$(3,12)$-jaula}& 1 & 126&126\\
+\pause
+\alert<6>{$(3,13)$-jaula}&1+&190[202]&272\\
+\pause
+$(3,14)$-jaula & 1+ & 254[258] & 384\\
+$(3,15)$-jaula & 1+ & 382 & 620\\
+$(3,16)$-jaula & 1+ & 510 & 960\\
+$(3,17)$-jaula & 1+ & 766 & 2176\\
+$(3,18)$-jaula & 1+ & 1022 & 2640\\
+$(3,19)$-jaula & 1+ & 1534 & 4324\\
+$(3,20)$-jaula & 1+ & 2046 & 6048\\
+$(3,21)$-jaula & 1+ & 3070 & 16028\\
+$(3,22)$-jaula & 1+ & 4094 & 16206\\
+%$(3,23)$-jaula & 1+ & 6142 & 49482\\
+
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+\begin{frame}{Un método}
+\only<1>{
+\begin{block}{}
+Idear una forma de construir gráficas cúbicas
+\end{block}}
+\begin{itemize}
+\item Las jaulas de cuello par, que hasta el momento se conocen son bipartitas.
+\item La gráfica bipartita clanica del complemento de la gráfica de lineas de $K_6$ es la $(3,8)$-jaula.
+\end{itemize}
+
+\only<2-5>{
+\begin{columns}
+\column{.5\textwidth}
+\only<2-5>{
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=0.4,rotate=90]
+    \SetUpVertex[MinSize=10pt]
+
+    \SetVertexNoLabel{\grComplete[prefix=v,RA=3]{6}}
+\foreach \y in {0,1,...,5} { \setcounter{in}{\y+1} \stepcounter{in}
+  \draw (v\y) node{\y}; }
+\end{tikzpicture}
+\end{figure}
+}
+\column{.6\textwidth}
+\only<3-5>{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=0.5,rotate=90]
+    \SetUpVertex[MinSize=.1pt]
+    \SetVertexNoLabel{\grEmptyCycle[prefix=v,RA=3]{15}}
+
+ % { \foreach
+ %      \y in {0,1,...,5} { \setcounter{in}{\y+1} \stepcounter{in} \draw
+ %        (v\y) node[above]{{in}}; }}
+
+% \Vertex[x=-0,y=0]{w0} }
+  %  \Edges(w0,v1,v2,w0,v3,v4,w0,v5,v0,w0)
+
+    \draw (v0) node[above]{$(12)$};
+
+\only<4-5>{\AddVertexColor{black}{v0}}
+
+\only<3,4>{
+\draw (v1) node[left]{$(13)$};
+\draw (v2) node[ left]{$(14)$};
+\draw (v3) node[left]{$(15)$};
+\draw (v4) node[left]{$(16)$};
+\draw (v11) node[right]{$(13)$};
+\draw (v12) node[ right]{$(14)$};
+\draw (v13) node[right]{$(15)$};
+\draw (v14) node[right]{$(16)$};
+}
+\only<3,5>{
+\draw (v5) node[left]{$(56)$};
+\draw (v6) node[left]{$(34)$};
+\draw (v7) node[below left]{$(35)$};
+\draw (v8) node[below right]{$(46)$};
+\draw (v9) node[right]{$(45)$};
+\draw (v10) node[right]{$(36)$};
+}
+
+\only<4>{
+\Edges[color=BlueViolet](v1,v0,v2)
+\Edges[color=BlueViolet](v3,v0,v4)
+\Edges[color=BlueViolet](v11,v0,v12)
+\Edges[color=BlueViolet](v13,v0,v14)
+\AddVertexColor{blue}{v1,v2,v3,v4,v11,v12,v13,v14}}
+
+
+\only<5>{
+\AddVertexColor{violet}{v5,v6,v7,v8,v9,v10}
+\Edges[color=Violet](v5,v0,v6)
+\Edges[color=Violet](v7,v0,v8)
+\Edges[color=Violet](v9,v0,v10)
+}
+%\AddVertexColor{}{}
+
+
+  \end{tikzpicture}
+\end{figure}
+}
+\end{columns}
+}
+
+\only<6-7>{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=.7]
+    \SetVertexNoLabel 
+    \grEmptyCycle[prefix=v,RA=3]{6}
+      \Vertex[x=0,y=0]{w0} 
+   
+ %\Edges(w0,v1,v2,w0,v0,v5,w0,v3,v4,w0)
+\Edges[color=Violet,style={line width=1.5pt}](v0,w0,v5)
+\Edges[color=Violet,style={line width=1.5pt}](v1,w0,v2)
+\Edges[color=Violet,style={line width=1.5pt}](v3,w0,v4)
+
+\only<7>{
+\Edges[color=Violet,style={line width=1.5pt}](v0,v5)
+\Edges[color=Violet,style={line width=1.5pt}](v1,v2)
+\Edges[color=Violet,style={line width=1.5pt}](v3,v4)
+
+}
+   \draw (w0) node{$12$};
+ \draw (v2) node{$34$}; \draw (v1) node{$56$};
+    \draw (v0) node{$36$}; \draw (v5) node {$45$}; \draw (v3)  node{$35$}; \draw (v4) node {$46$};
+
+  \end{tikzpicture}
+%\only<7>{
+%  \caption{Vecindad cerrada de $\{1,2\}$.}\label{vecindadde12}}
+\end{figure}
+}
+\end{frame}
+
+\end{document}
+
+
+
+
+\begin{frame}
+  \frametitle{Flores}
+
+\begin{columns}
+\begin{column}{5cm}\vspace*{1cm}
+
+  \begin{itemize}
+  \item<1-|alert@1>{Rosa}
+  \item<2->{Azucena}
+  \item<3-|alert@3>{Margarita}
+  \end{itemize}
+
+
+\end{column}
+
+
+\begin{column}{5cm}
+\begin{center}
+
+\only<1>{hola aqui estoy}
+\only<3>{
+\begin{tabular}{|c|c|c|}
+\hline &H.S.$M$&No H.S.$M$
+\\ \hline
+H.S.$M^{\perp}$&$Ex3$&$Ex4$
+\\ \hline
+No H.S.$M^{\perp}$&$Ex4$&$\smiley$
+\\ \hline
+\end{tabular}
+}
+
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\end{document}
+
+
+\begin{frame}
+
+\begin{alertblock}<+->{Definición}
+Un operador  lineal acotado $T:\mathcal{H}\to\mathcal{H}$ se dice
+\textbf{hiperciclico} si para a
+\end{alertblock}
+
+\end{frame}
+
+
+\end{document}
+
+%------------------------------------------------------------------------
 
 \begin{frame}
 {Definiciones}
