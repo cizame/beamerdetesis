@@ -15,6 +15,7 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{tkz-berge}
+\usepackage{tkz-berge-add}
 %\usepackage{color}
 \usetikzlibrary{decorations.pathmorphing,arrows}
 
@@ -219,7 +220,7 @@ exactamente $k$ elementos.
     \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
 %\tikzset{EdgeStyle/.append style = {green,line width=2pt}
  %   \grCycle[RA=3,RB=3,RS=3]{6}
-\grComplete[RA=1.5,RB=3]{6}
+\grComplete[RA=1.4,RB=3]{6}
 \end{tikzpicture}
  % \caption{Bipartita completa $K_{3,3}$.}
 \end{figure}
@@ -236,7 +237,7 @@ exactamente $k$ elementos.
   \begin{tikzpicture}
     \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
 %\tikzset{EdgeStyle/.append style = {green,line width=2pt}
-    \grCycle[RA=1.5,RB=3]{6}
+    \grCycle[RA=1.4,RB=3]{6}
 %\grComplete[RA=1.5,RB=3]{6}
 \end{tikzpicture}
 %  \caption{Bipartita completa $K_{3,3}$.}
@@ -270,6 +271,172 @@ En toda gráfica $G$, la suma de los grados de
 Sea $G$ una gráfica $k$-regular con $k$ impar. Entonces el orden de
   $G$ es par.
 \end{alertblock}
+
+\end{frame}
+
+\begin{frame}{Cuello}
+
+\begin{alertblock}{Cuello}
+Sea $G$ una gráfica con ciclos. Se define el cuello de $G$ como:
+  \begin{equation*}
+    g(G):= \min\{ \text{longitud de $c$} \mid  \text{$c$ es un ciclo en $G$} \}
+  \end{equation*}
+%El cuello de una gráfica es la longitud de su ciclo más pequeño. 
+\end{alertblock}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+   \grCycle[RA=1.5,prefix=v]{6}
+\Edges(v2,v4)
+\Edges(v5,v1)
+
+ \begin{pgfonlayer}{background}
+\pause
+\only<2>{
+ \tikzset{EdgeStyle/.append style = {green,line width=2pt}}
+ \Edges(v2,v4,v3,v2)
+ \Edges(v5,v1,v0,v5)
+}
+ \end{pgfonlayer}
+
+\end{tikzpicture}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}%{$(k,g)$-gráfica}
+\begin{alertblock}{$(k,g)$-gráfica}
+Una $(k,g)$-gráfica es una gráfica $k$-regular de cuello $g$.
+\end{alertblock}
+
+\begin{columns}
+\column{.5\textwidth}
+{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+ %   \grCycle[RA=3,RB=3,RS=3]{6}
+\grComplete[RA=1.4,RB=3]{6}
+\end{tikzpicture}
+ % \caption{Bipartita completa $K_{3,3}$.}
+\end{figure}
+\begin{block}{}
+  Con $n\ge 3$ $K_n$ es una gráfica $(n-1,3)$-gráfica.
+\end{block}
+}
+\column{.5\textwidth}
+{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+    \grCycle[RA=1.4,RB=3]{6}
+%\grComplete[RA=1.5,RB=3]{6}
+\end{tikzpicture}
+%  \caption{Bipartita completa $K_{3,3}$.}
+\end{figure}
+
+\begin{block}{}
+El ciclo $C_n$ es una $(2,n)$-gráfica.
+\end{block}
+}
+\end{columns}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{alertblock}{$(k,g)$-jaula}
+Una $(k,g)$-jaula es una gráfica $k$-regular de cuello $g$, con la
+  menor cantidad de vértices posible.
+\end{alertblock}
+\pause
+
+\begin{columns}
+\column{.5\textwidth}
+{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+\grEmptyCycle[RA=1.5,rotation=45,prefix=v]{4}    
+\begin{scope}[shift={(-0.5 cm,0)}]
+    \grPath[prefix=w,RA=1]{2}
+\end{scope}
+
+\Edges(w1,v0,v1,w0,v2,v3,w1)
+\Edges[style={bend right}](v1,v2)
+\Edges[style={bend right}](v3,v0)
+\end{tikzpicture}
+ \end{figure}
+\begin{block}{}
+\begin{center}
+$(3,3)$-gráfica.
+\end{center}
+\end{block}
+}
+\column{.5\textwidth}
+{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+    \grComplete[RA=1.5,rotation=45]{4}
+\end{tikzpicture}
+\end{figure}
+
+\begin{block}{}
+\begin{center}
+$(3,3)$-jaula.
+\end{center}
+\end{block}
+}
+\end{columns}
+
+\pause
+
+\begin{itemize}
+\item La completa $K_n$ es una $(n-1,3)$-jaula.
+\only<4>{
+\item El ciclo $C_n$ es una $(2,n)$-jaula.}
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{El Problema}
+
+\begin{block}{}
+Los problemas fundamentales en la teoría de las jaulas
+consisten en determinar el número de vértices que las $(k,g)$-jaulas
+tienen y clasificarlas salvo isomorfismo.
+\end{block}
+\pause
+\begin{block}{}
+La tesis se centra en gráficas 3-regulares, llamadas también
+generalmente \alert{gráficas cúbicas}.
+\end{block}
+\pause
+
+\begin{enumerate}
+\item Se idea un método para construir
+gráficas cúbicas con cuellos grandes.
+\item Se pone en práctica dicho método para
+verificar si es posible construir una gráfica cúbica que reduzca la
+cota superior actual dada para las jaulas 3-regulares.
+\end{enumerate}
 
 \end{frame}
 
