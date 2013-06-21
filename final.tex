@@ -441,8 +441,123 @@ cota superior actual dada para las jaulas 3-regulares.
 \end{frame}
 
 
-\section{4}
-\begin{frame}
+\section{Jaulas cúbicas de cuello pequeño}
+
+\begin{frame}%{Cota de Moore}
+
+\begin{columns}
+\column{.5\textwidth}
+{
+\begin{alertblock}{Isomorfismo}
+  Sean $\Gamma_1,\Gamma_2$ dos gráficas. Un isomorfismo de
+  $\Gamma_1$ a $\Gamma_2$ es una función biyectiva $f:
+  V(\Gamma_1)\rightarrow V(\Gamma_2)$ tal que $x\thicksim y$ en
+  $\Gamma_1$ si y solo si $f(x)\thicksim f(y)$ en $\Gamma_2$.
+\end{alertblock}
+}
+\column{.5\textwidth}
+
+{ 
+\begin{columns}
+\column{.5\textwidth}
+{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+\grEmptyCycle[RA=1.2,rotation=45,prefix=v]{4}    
+
+\Edges(v0,v1,v3,v2,v0)
+\draw (v0) node[below right]{$2$};
+\draw (v1) node[below right]{$1$};
+\draw (v2) node[below right]{$3$};
+\draw (v3) node[below right]{$4$};
+
+\end{tikzpicture}
+ \end{figure}
+
+}
+\column{.5\textwidth}
+{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+    \grCycle[RA=1.2,rotation=45]{4}
+
+\draw (v0) node[below right]{$b$};
+\draw (v1) node[below right]{$a$};
+\draw (v2) node[below right]{$c$};
+\draw (v3) node[below right]{$d$};
+
+\end{tikzpicture}
+\end{figure}
+}
+\end{columns}
+
+
+}
+\end{columns}
+
+\pause
+\begin{columns}
+\column{.5\textwidth}
+{
+\begin{alertblock}{Automorfismo}
+  Un isomorfismo de una gráfica $\Gamma$ en sí misma se llama
+  automorfismo de $\Gamma$.
+\end{alertblock}
+
+}
+
+\column{.5\textwidth}
+
+{
+\begin{columns}
+\column{.5\textwidth}
+{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+    \grCycle[RA=1.2,rotation=45,prefix=v]{4}
+
+\draw (v0) node[below right]{$b$};
+\draw (v1) node[below right]{$a$};
+\draw (v2) node[below right]{$c$};
+\draw (v3) node[below right]{$d$};
+
+\end{tikzpicture}
+\end{figure}
+}
+\column{.5\textwidth}
+{
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+    \grCycle[RA=1.2,rotation=45,prefix=v]{4}
+\draw (v0) node[below right]{$c$};
+\draw (v1) node[below right]{$a$};
+\draw (v2) node[below right]{$b$};
+\draw (v3) node[below right]{$d$};
+
+\end{tikzpicture}
+\end{figure}
+}
+\end{columns}
+}
+
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Cota de Moore}
 
 \begin{alertblock}{}
 
@@ -450,11 +565,192 @@ cota superior actual dada para las jaulas 3-regulares.
 
 \end{frame}
 
+\section{Gráficas cúbicas de cuello par $\ge 8$}
+
+\begin{frame}
+
+\begin{alertblock}{Clan}
+  Un clan de una gráfica $G$ es un conjunto de vertices maximal
+  respecto a la propiedad de que cual quiera par de vertices en el
+  conjunto son adyacentes.
+\end{alertblock}
+
+\pause
+\begin{figure}
+  \centering
+  \begin{minipage}[c]{.35\linewidth}
+    \centering
+{ 
+   \begin{tikzpicture}[scale=0.5]
+      \SetVertexNoLabel
+      
+      \SetUpVertex[MinSize=1.5pt]
+      \grCycle[RA=2.5,prefix=v]{8} 
+      \foreach \y in {0,1,...,7} {%
+        \setcounter{in}{\y}
+        \stepcounter{in}
+        \draw (v\y) node[below right]{$\alph{in}$};
+      }
+      \Edges(v1,v3,v7,v1,v5,v3)
+      \Edges(v5,v7)
+    \end{tikzpicture}
+}
+%    \caption{}
+%    \label{grafclan}
+  \end{minipage}
+  \hspace{0.1cm}
+  \begin{minipage}[c]{.6\linewidth}
+    \centering
+\only<3>{
+    \begin{tikzpicture}[scale=0.5]
+    \SetVertexNoLabel \SetUpVertex[MinSize=1.5pt]
+
+    \grEmptyPath*[x=0,y=0,RA=2,prefix=v]{,,,,,}
+    \grEmptyPath*[x=1,y=2,RA=4,prefix=w]{,,}
+    \grEmptyPath*[x=0,y=3,RA=2,prefix=x]{,,,}
+    \grEmptyPath*[x=0,y=5,RA=2,prefix=y]{,} \Vertex[x=5,y=5]{z0}
+    \Edges(v0,v1,w0,v0) \Edges(v2,v3,w1,v2) \Edges(x0,x1,y1,x0,y0,x1)
+    \Edges(y0,y1) \Edges(x2,x3,z0,x2) \Edges(v4,v5,w2,v4)
+
+    \draw (v0) node [below]{$f$}; \draw (v1) node[below right]{$d$};
+    \draw (w0) node[below right]{$e$}; \draw (v2) node[below
+    right]{$b$}; \draw (v3) node[below right]{$h$}; \draw (w1)
+    node[below right]{$a$}; \draw (v4) node[below right]{$f$}; \draw
+    (v5) node[below right]{$h$}; \draw (w2) node[below right]{$g$};
+    \draw (x0) node[below right]{$f$}; \draw (x1) node[below
+    right]{$h$}; \draw (y0) node[below right]{$d$}; \draw (y1)
+    node[below right]{$b$}; \draw (z0) node[below right]{$c$}; \draw
+    (x2) node[below right]{$d$}; \draw (x3) node[below right]{$b$};
+  \end{tikzpicture}
+} 
+% \caption{Clanes de la figura~\ref{grafclan}.}\label{clanes}
+  \end{minipage}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}
+\begin{alertblock}{Gráfica bipartita clánica}
+Sea $Cl_G:=\{H \mid H$ es un clan de una gráfica $G \}$. Se define
+  la gráfica bipartita clánica $BK(G)$ de una gráfica $G$,
+  como la gráfica con conjunto de vértices:
+  $$V(BK(G)) := V(G) \dot{\cup} Cl_G$$ 
+  y donde $x,y\in V(BK(G))$ son adyacentes si y solo si $x\in V(G)$ y
+  $y$ es un clan de $G$, tales que $x\in y$ o viceversa.
+\end{alertblock}
+
+
+\pause
+\begin{center}
+  \begin{minipage}[c]{.3\linewidth}
+    \centering
+{ 
+   \begin{tikzpicture}[scale=0.4]
+      \SetVertexNoLabel
+      \SetUpVertex[MinSize=1.5pt]
+      \grCycle[RA=2.5,prefix=v]{8} 
+      \foreach \y in {0,1,...,7} {%
+        \setcounter{in}{\y}
+        \stepcounter{in}
+        \draw (v\y) node[below right]{$\alph{in}$};
+      }
+      \Edges(v1,v3,v7,v1,v5,v3)
+      \Edges(v5,v7)
+    \end{tikzpicture}
+}
+%    \caption{}
+%    \label{grafclan}
+  \end{minipage}
+  \hspace{.01cm}
+  \begin{minipage}[c]{.65\linewidth}
+    \centering
+ \begin{tikzpicture}[scale=0.5]
+    \SetVertexNoLabel \SetUpVertex[MinSize=1.5pt]
+    \grEmptyPath*[x=0,y=3,RA=2,prefix=v]{,,,,,,,}
+    \grEmptyPath*[x=1,y=0,RA=3,prefix=w]{,,,,}
+    { \foreach \y in {0,1,...,7} { \setcounter{in}{\y}
+        \stepcounter{in} \draw (v\y) node[above right]{$\alph{in}$};
+      }}
+    \Edges(v0,w0,v1,w0,v7) \Edges(v1,w1,v2,w1,v3)
+    \Edges(v3,w3,v4,w3,v5) \Edges(v5,w4,v6,w4,v7)
+    \Edges(v1,w2,v3,w2,v5,w2,v7) \draw(1,-.5) node {$\{a,b,h\}$};
+    \draw(4,-.5) node {$\{b,c,d\}$}; \draw(7,-.5) node {$\{b,d,f,h\}$};
+    \draw(10,-.5) node {$\{d,e,f\}$}; \draw(13,-.5) node {$\{f,g,h\}$};
+  \end{tikzpicture}
+% \caption{Clanes de la figura~\ref{grafclan}.}\label{clanes}
+  \end{minipage}
+\end{center}
+
+
+\end{frame}
+
+\begin{frame}
+\begin{alertblock}{Gráfica localmente $3K_2$}
+  Una gráfica $G$ es conocida como localmente $3K_2$ si es de vecindad
+  constante y además la subgráfica de $G$ inducida por los vecinos de $x$
+  es isomorfa a la unión disjunta de tres copias de la gráfica
+  completa $K_{2}$, para todo $x\in V(G)$, es decir:
+  $$N_G(x)\cong 3K_2$$
+\end{alertblock}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+    \SetUpVertex[MinSize=10pt] \SetVertexNoLabel {
+      \grEmptyCycle[prefix=v,RA=3]{6} \Vertex[x=-0,y=0]{w0} }
+    \Edges(w0,v1,v2,w0,v3,v4,w0,v5,v0,w0)
+ \draw(w0) node {$x$};
+  \end{tikzpicture}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Gráfica localmente $3K_2$}
+
+\begin{alertblock}{Proposición}
+La gráfica bipartita clánica asociada a una gráfica localmente $3K_2$
+ es cúbica y tiene cuello al menos 8.
+\end{alertblock}
+
+\begin{columns}
+%\column{.5}
+  \begin{tikzpicture}[scale=.8]
+    \SetUpVertex[MinSize=10pt]%
+
+    \grEmptyPath*[x=-1.8,y=0,RA=3.6,prefix=a,Math]{a,b}
+ \SetVertexNoLabel{
+    \Vertex[x=0,y=1.3]{b} \Vertex[x=0,y=-1.3]{c}
+}
+    \Edges(a0,b,a1,c,a0)
+    \Edge[style={bend right=8}](a0)(a1) \Edge[style={bend
+      right=8}](a1)(a0)
+    \draw(0,.6) node {$T_1$}; \draw(0,-.7) node {$T_2$};
+  \end{tikzpicture}
+%\column{.5}
+  \begin{tikzpicture}[scale=.9]
+    \SetUpVertex[MinSize=2pt]
+\SetVertexNoLabel{
+    \grEmptyPath*[x=-2,y=0,RA=3,prefix=w,Math]{a,b,c}
+    \grEmptyPath*[x=-2,y=1.5,RA=3,prefix=v]{,,}
+}
+\draw (v0) node[above]{$T_1$};
+\draw (v1) node[above]{$T_2$};
+\draw (v2) node[above]{$T_3$};
+    \Edges(v0,w0,v1,w1,v2,w2,v0)
+  \end{tikzpicture}
+ \end{columns}
+
+
+\end{frame}
 
 \section{Algoritmo}
 
+
 \begin{frame}
+
 \end{frame}
+
+
 
 \end{document}
 
