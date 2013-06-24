@@ -532,6 +532,87 @@ cota superior actual dada para las jaulas 3-regulares.
 
 \end{frame}
 
+
+\begin{frame}{Jaulas cúbica}
+
+\only<2>{
+\begin{itemize}
+\item
+{Biggs y Hoare}
+\item
+{ Brendan McCay}
+\item
+{Brinkmann y Saager}
+\end{itemize}
+}
+
+
+\only<3>{
+\begin{itemize}
+\item
+{M. O'Keefe y P.K. Wong}
+\end{itemize}
+}
+
+
+\only<4>{
+\begin{itemize}
+\item
+{Brendan McKay y Wendy Myrvold}
+
+\end{itemize}
+}
+
+
+\only<6>{
+\begin{itemize}
+\item
+{Brendan McKay y Wendy Myrvold}
+\item{Miles Whitehead}
+\end{itemize}
+}
+
+
+\begin{table}
+\centering
+\begin{tabular}{cccc}
+\text{Jaula} & Cantidad & Cota de Moore & La más chica\\
+\hline
+\only<1-6>{
+$(3,3)$-jaula &1 & 4&4\\
+$(3,4)$-jaula & 1 &6&6\\
+$(3,5)$-jaula & 1 &10&10\\}
+$(3,6)$-jaula& 1  &14&14\\
+$(3,7)$-jaula& 1  &22&24\\
+$(3,8)$-jaula& 1  &30&30\\
+\pause 
+\alert<2>{$(3,9)$-jaula}&18 & 46&58\\
+\pause
+\alert<3>{$(3,10)$-jaula}& 3 &62 &70\\
+\pause
+\alert<4>{$(3,11)$-jaula}& 1 & 94 &112\\
+\pause
+\alert<5>{$(3,12)$-jaula}& 1 & 126&126\\
+\pause
+\alert<6>{$(3,13)$-jaula}&1+&190[202]&272\\
+\pause
+$(3,14)$-jaula & 1+ & 254[258] & 384\\
+$(3,15)$-jaula & 1+ & 382 & 620\\
+$(3,16)$-jaula & 1+ & 510 & 960\\
+$(3,17)$-jaula & 1+ & 766 & 2176\\
+$(3,18)$-jaula & 1+ & 1022 & 2640\\
+$(3,19)$-jaula & 1+ & 1534 & 4324\\
+$(3,20)$-jaula & 1+ & 2046 & 6048\\
+$(3,21)$-jaula & 1+ & 3070 & 16028\\
+$(3,22)$-jaula & 1+ & 4094 & 16206\\
+%$(3,23)$-jaula & 1+ & 6142 & 49482\\
+
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+
 \section{Gráficas cúbicas de cuello par $\ge 8$}
 
 \begin{frame}
@@ -1423,12 +1504,168 @@ del grupo $G$}.
 \section{Algoritmo}
 
 
-\begin{frame}
+\begin{frame} {Algoritmo}
+
+\begin{alertblock}{El programa}
+A partir de un listado de grupos:
+\begin{itemize}
+\item Construye gráficas de Cayley localmente $3K_2$
+\item Le asocia su gráfica bipartita clánica 
+\item Verifica el cuello de la nueva gráfica 
+\end{itemize}
+\end{alertblock}
 
 \end{frame}
 
+\begin{frame}{GAP}
+
+\begin{block}{GAP}
+GAP es un software libre de álgebra discreta, el cual pone especial énfasis
+en teoría de grupos. 
+\end{block}
+
+\begin{block}{}
+Tiene una \alert{lista de todos los grupos} de orden hasta 2000.
+\end{block}
+
+\begin{block}{Grape}
+Incluye la paquetería \alert{GRAPE} para trabajar con
+gráficas y sus propiedades.
+\end{block}
 
 
+\end{frame}
+
+\begin{frame}{Condiciones}
+
+\begin{columns}
+\column{.5\textwidth}
+\begin{alertblock}{Tipo 1}
+  Sean $G$ un grupo y $T$ un conjunto tales que la gráfica de Cayley,
+  $\Cay(G,T)$, es localmente $3K_2$ del tipo 1. Entonces 3 divide al
+  orden del grupo.
+\end{alertblock}
+\column{.5\textwidth}
+\begin{alertblock}{Tipo 2}
+  Si $G$ es un grupo abeliano entonces, no existe una gráfica de Cayley
+  localmente $3K_2$ del tipo 2 generada a partir de un conjunto $T$ del grupo $G$.
+\end{alertblock}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{block}{}
+  El cuello de la gráfica bipartita clánica de una gráfica localmente
+  $3K_2$ depende de la longitud del ciclo más pequeño de longitud
+  mayor a 3 que se forma en la grafica localmente $3K_2$.
+\end{block}
+
+\begin{center}
+
+  \begin{tikzpicture}{scale=.1}
+\SetUpVertex[MinSize=1pt]
+    \SetVertexNoLabel { \grEmptyCycle[prefix=v,RA=1.5]{6}
+      \Vertex[x=0,y=0]{w0} }
+    \Edges(w0,v1,v2,w0,v0,v5,w0,v3,v4,w0)\AddVertexColor{black}{w0}
+
+\only<2>{
+\AddVertexColor{blue}{v0,v1,v2,v3,v4,v5}}   
+
+\only<3-4>{
+
+\only<3-4>{
+    \Vertex[x=.4,y=1.75]{w2} \Vertex[x=0,y=2.3]{w1}
+    \Vertex[x=-1.9,y=1.75]{w3} \Vertex[x=-1.5,y=2.3]{w4}
+
+   \Vertex[x=-2.6,y=.7]{t2} \Vertex[x=-2.2,y=1.2]{t1}
+    \Vertex[x=-2.6,y=-.5]{t3} \Vertex[x=-2.2,y=-1]{t4}
+
+\only<3>{\AddVertexColor{blue}{w1,w2,w3,w4,t1,t2,t3,t4}}}   
+\only<4>{\AddVertexColor{blue}{w4}}
+
+    \Edges(v2,w2,w1,v2) \Edges(v2,w3,w4,v2)
+    \Edge(v2)(w2)
+    \Edge(v2)(w1)
+    \Edge(v2)(w3)
+    \Edge(v2)(w0) 
+    \Edge(v2)(v1)
+    \Edge(v2)(w4)
+   
+ %\Edges(v2,w2,w1,v2) \Edges(v2,w3,w4,v2)
+    \Edges(v3,t2,t1,v3)
+    \Edges(v3,t4,t3,v3)
+ }  
+ \draw (w0) node[above left]{$e$};
+ % \draw (v2) node{$a$}; \draw (v1) node{$b$};
+ %    \draw (v0) node{$a^{-1}b$}; \draw (v5) node {$a^{-1}$}; \draw (v3)
+ %    node{$b^{-1}a$}; \draw (v4) node {$b^{-1}$};
+ %    \draw (w1) node{$ab$}; \draw (w2) node{$a^2$}; \draw (w3)
+ %    node{$ab^{-1}$}; \draw (w4) node {$ab^{-1}a$};
+
+  \end{tikzpicture}
+
+\only<2>{
+\begin{block}{}
+Vertices a distancia 1 de la identidad $=$ 6.
+\end{block}
+}
+\only<3>{
+\begin{block}{}
+Vertices a distancia 2 de la identidad $=$ $(6)(4)=24$.
+\end{block}
+}
+
+\only<4>{
+\begin{block}{}
+Vertices a distancia 3 de la identidad $=$ $4[(6)(4)]=4(24)=96$.
+\end{block}
+}
+
+\end{center}
+\end{frame}
+
+\section{Resultados}
+
+\begin{frame}{Resultados}
+
+\begin{tabular}{| r |c |c |c|}
+\hline
+   La jaula & Cota superior & Orden de la gráfica tipo 2 & Orden
+   de la gráfica tipo 1\\
+\hline
+   $(3,8)$-jaula & 30 & 40 & 42\\
+\hline
+    $(3,10)$-jaula  & 70 & 80 & 114\\
+\hline
+ $(3,12)$-jaula  & 126 & 162 & 162\\
+\hline
+ $(3,14)$-jaula  & 384 & 406 & 612\\
+\hline
+ $(3,16)$-jaula  & 960 & 1008 & 1008\\
+\hline
+ $(3,18)$-jaula  & 2640 & 2640 & ?\\
+\hline
+ $(3,20)$-jaula  & 6048 &  ?&?\\
+\hline
+ $(3,22)$-jaula  & 16206 &  ?&?\\
+\hline
+ $(3,24)$-jaula  & 49608 &  ?&?\\
+\hline
+ $(3,26)$-jaula  & 109200 &  ?& ?\\
+\hline
+ $(3,28)$-jaula  & 415104 &  ?&? \\
+\hline
+ $(3,30)$-jaula  & 1227666 & ? & ?\\
+\hline
+ $(3,32)$-jaula  & 3650304 &  ?&? \\
+\hline
+ \end{tabular}
+\end{frame}
+
+\begin{frame}{Gracias}
+\end{frame}
 \end{document}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1522,8 +1759,6 @@ del grupo $G$}.
 
 
 \begin{frame}{Jaulas cúbica}
-
-
 
 \only<2>{
 \begin{itemize}
