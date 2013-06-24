@@ -188,7 +188,7 @@ Sea $B$ una gráfica. Si existen subconjuntos no vacíos $X$ y $Y$ de
 \only<2>{
 \begin{alertblock}{Gráfica bipartita completa: $K_{m,n}$}
 Sean $X$ y $Y$ conjuntos tales que forman una biparticion de una
-gráfica bipartita $B$. Si dado $x\in V(B)$ para todo $y\in Y$ existe
+gráfica bipartita $B$. Si dado $x\in X$ para todo $y\in Y$ existe
 arista entre $x$ y $y$, se dice que $B$ es una gráfica bipartita completa.
  % Dados $m$ y $n$ números enteros mayores o iguales a uno, la gráfica bipartita completa $K_{m,n}$ se define
  %  como: $$K_{m,n}:=\overline{K_m \cup K_n}$$
@@ -1138,7 +1138,7 @@ $(3,22)$-jaula & 1+ & 4094 & 16206\\
 
 \begin{alertblock}{Clan}
   Un clan de una gráfica $G$ es un conjunto de vértices maximal
-  respecto a la propiedad de que cual quiera par de vértices en el
+  respecto a la propiedad de que cualquier par de vértices en el
   conjunto son adyacentes.
 \end{alertblock}
 
@@ -1474,17 +1474,16 @@ clánica de una gráfica $G$ localmente $3K_2$.
 \end{alertblock}
 \pause
 \begin{block}{}
-Sea $\Gamma$ una gráfica tal que:
+Sea $\Gamma$ la gráfica tal que:
 \begin{center}
 \begin{enumerate}
 \item
-$V(\Gamma)=\{ \{a,b\} \mid a,b\in\{1,2,...,6\}\}$
+$V(\Gamma)=\{ \{a,b\} \mid a,b\in\{1,2,...,6\}, a\neq b\}$
 \item
-$E(\Gamma)=\{x \sim y \Leftrightarrow x\cap y=\emptyset \mid x,y \in V(\Gamma)\} $
+$E(\Gamma)=\{\{x,y\}\subseteq V(\Gamma) \mid x\cap y=\emptyset \} $
 \end{enumerate}
 \end{center}
 \end{block}
-
 
 \only<2-4>{
 \begin{center}
@@ -2067,7 +2066,7 @@ gráficas y sus propiedades.
 \column{.5\textwidth}
 \begin{alertblock}{Tipo 2}
   Si $G$ es un grupo abeliano entonces, no existe una gráfica de Cayley
-  localmente $3K_2$ del tipo 2 generada a partir de un conjunto $T$ del grupo $G$.
+  localmente $3K_2$ del tipo 2 generada a partir de un conjunto $T$ del grupo~$G$.
 \end{alertblock}
 
 \end{columns}
