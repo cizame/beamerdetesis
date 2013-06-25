@@ -2060,6 +2060,89 @@ del grupo $G$}.
 }
 \end{frame}
 
+\begin{frame}
+
+\begin{tikzpicture}[line width=1.5pt,>=latex]
+
+\sffamily
+
+% \node[below=of a1] (a2) {Ashu};
+% \node[below=of a2] (a3) {Jenny};
+
+
+%
+% \node[below=of b2] (b3) {Fred};
+%\node[right=4cm of a2] (aux2) {};
+%\node[right=4cm of a1] (aux1) {};
+
+\node[shape=rectangle,draw=myblue,minimum size=3cm,fit={(-2.2,-3.2) (2.2,2)}] {}; 
+\node[shape=rectangle,draw=myblue,minimum size=3cm,fit={(3.3,-3.2) (7.7,2)}] {};
+ 
+\only<1>{
+\SetUpVertex[MinSize=.1pt]
+\SetVertexNoLabel{
+  \Vertex[x=-.3,y=-.5]{zw}
+  \Vertex[x=5.5,y=-.5]{zw1}
+}
+\Edges[color=myblue,style={<->,line width=2pt,bend left=15}](zw,zw1)
+}
+\only<2-3>{
+
+\node (a1) {Gráficas};
+ \node[below=.1cm of a1] (a2) {de Cayley};
+ \node[below=.1cm of a2] (a3) {del tipo 2};
+
+\node[shape=ellipse,draw=blue,minimum size=3cm,fit={(-1.3,1) (1.3,-2.2)}] {};
+
+\node[shape=ellipse,draw=blue,minimum size=3cm,fit={(4.2,1) (6.8,-2.2)}] {};
+}
+
+\only<3>{
+
+\node[right=4cm of a1] (b1) {Graficas};
+\node[below=.1 cm of b1] (b2) {de};
+\node[below=.1 cm of b2] (b3) {Cayley};
+
+\node[shape=ellipse,draw=Magenta,minimum size=3cm,fit={(b1) (b3)}] {};
+}
+
+% \draw (0,2) circle (1.5) (0,2)  node [text=black,above] {Gráficas de Cayley}
+%       (5.7,2) circle (1) (5.7,1.5)  node [text=black,above] {Gráficas de Cayley}
+%       (5.7,2) circle (1.5) (5,7,1.6)  node [text=black,above] {};
+     
+
+
+ \node[below=3cm of b2,font=\color{myblue}\bfseries] {Gráficas bipartitas cúbicas};
+ \node[below=3.5cm of b2,font=\color{myblue}\bfseries] {de cuello al menos 8};
+
+ \node[below=3cm of a2,font=\color{myblue}\bfseries] {Gráficas bipartitas clánicas};
+ \node[below=3.5cm of a2,font=\color{myblue}\bfseries] {de gráficas localmente $3K_2$};
+
+\only<2>{
+ \SetUpVertex[MinSize=.1pt]
+\SetVertexNoLabel{
+  \Vertex[x=0,y=1]{z0}
+  \Vertex[x=5.5,y=1]{z1}
+}
+\Edges[color=blue,style={<->,line width=2pt,bend left=15}](z0,z1)
+}
+
+\only<3>{
+ \SetUpVertex[MinSize=.1pt]
+\SetVertexNoLabel{
+  \Vertex[x=1.3,y=-.6]{w0}
+  \Vertex[x=4.4,y=-.6]{w1}
+}
+\Edges[color=Magenta,style={<-,line width=2pt,bend left=15}](w0,w1)
+}
+% \Edge[color=blue,style={->,bend left}] (z0,z1)
+%\draw [myblue,style={->,bend left}] (z0) -- (z1);
+%\draw[->,myblue] (a2) -- (b1.190);
+% \draw[->,myblue] (a3) -- (b2.175);
+% \draw[->,myblue] (a4.20) -- (b2.190);
+\end{tikzpicture}
+\end{frame}
+
 \section{Algoritmo}
 
 
@@ -2196,16 +2279,21 @@ Vértices a distancia 3 de la identidad $=$ $4[(6)(4)]=4(24)=96$.
 \hline
    $(3,8)$-jaula & 30 & 40 & 42\\
 \hline
+\pause
     $(3,10)$-jaula  & 70 & 80 & 114\\
 \hline
+\pause
  $(3,12)$-jaula  & 126 & 162 & 162\\
 \hline
+\pause
  $(3,14)$-jaula  & 384 & 406 & 612\\
-\hline
+\hline \pause
  $(3,16)$-jaula  & 960 & 1008 & 1008\\
 \hline
+\pause
  $(3,18)$-jaula  & 2640 & 2640 & ?\\
 \hline
+\pause
  $(3,20)$-jaula  & 6048 &  ?&?\\
 \hline
  $(3,22)$-jaula  & 16206 &  ?&?\\
