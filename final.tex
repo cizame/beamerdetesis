@@ -171,19 +171,20 @@ Sea $B$ una gráfica. Si existen subconjuntos no vacíos $X$ y $Y$ de
   entonces a $B$ se le conoce como gráfica bipartita. A los conjuntos
   $X$ y $Y$ se les conoce como bipartición de $B$.
 \end{alertblock}
-\begin{figure}
-  \centering
+\only<1>{
+\begin{center}
   \begin{tikzpicture}
     \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
 \begin{scope}[shift={(1.5 cm,0)}]
     \grEmptyPath[RA=3,RB=3,RS=3,prefix=v]{3}
 \end{scope}
     \grEmptyPath[RA=3,RB=3,prefix=w]{4}
-\Edges[color=blue,style={line width=2pt}](w0,v0,w1,v1,w2,v2,w3,v1,w0)
+\Edges[color=blue,style={line width=1.5pt}](w0,v0,w1,v1,w2,v2,w3,v1,w0)
 \AddVertexColor{Green}{v0,v1,v2}
 \AddVertexColor{RubineRed}{w0,w1,w2,w3}
 \end{tikzpicture}
-\end{figure}
+\end{center}
+}
 }
 \only<2>{
 \begin{alertblock}{Gráfica bipartita completa: $K_{m,n}$}
@@ -235,14 +236,12 @@ exactamente $k$ elementos.
 \column{.5\textwidth}
 {
 \only<1,3>{
-\begin{figure}
-  \centering
-  \begin{tikzpicture}
+\begin{center}
+    \begin{tikzpicture}
     \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
     \grCycle[RA=1.4,RB=3]{6}
 \end{tikzpicture}
-%  \caption{Bipartita completa $K_{3,3}$.}
-\end{figure}}
+\end{center}}
 \only<3>{
 \begin{alertblock}{Ciclo de longitud $n$: $C_n$}
 Un ciclo de longitud $n$ es una sucesión
@@ -735,16 +734,12 @@ Subgráfica de una gráfica 3-regular con cuello par.
 
 \Edges[style={bend left=40},color=red](a2;3,a2;5)
   \Edges[style={bend left=40},color=red](a2;3,a2;6)
-
-
-\draw (a0;0) node[below left]{$w_{0,0}$};
-\draw (a0;1) node[below right]{$w_{0,1}$};
+\draw (a0;0) node[left]{$w_{0,0}$};
+\draw (a0;1) node[right]{$w_{0,1}$};
 \draw (a1;0) node[left]{$w_{1,0}$};
 \draw (a1;1) node[left]{$w_{1,1}$};
 \draw (a1;2) node[left]{$w_{1,2}$};
 \draw (a1;3) node[left]{$w_{1,3}$};
-
-
   \end{tikzpicture}
  \end{minipage}
   \hspace{3cm}
@@ -784,9 +779,10 @@ La jaula $3$-regular de cuello 7 no alcanza su cota de Moore.
 
 \begin{block}{}
 \begin{equation*}
- \text{ cota de Moore para la $(3,7)$-jaula}=22
+ \text{ cota de Moore para la $(3,7)$-jaula}=1 + 3\sum^2_{i=0} 2^i=1+3(1+2+4)=22
 \end{equation*}
 \end{block}
+
 \end{frame}
 
 \begin{frame}{$(3,7)$-jaula}
@@ -881,8 +877,6 @@ fuera del árbol que tiene como base a $x$, son adyacentes.
   \centering
 \begin{minipage}[a]{.19\linewidth}
   \begin{tikzpicture}[scale=.5]
-
-
     \SetVertexNoLabel { \SetUpVertex[MinSize=1.5pt]
       \grSubtreeOfCage[RA=4,RB=1.5]{3}{7} } \foreach \y in
     {0,1,...,11}{%
@@ -1054,6 +1048,43 @@ fuera del árbol que tiene como base a $x$, son adyacentes.
 
 \begin{frame}{Jaulas cúbica}
 
+\begin{table}
+\centering
+\begin{tabular}{cccc}
+\text{Jaula} & Cantidad & Cota de Moore & La más chica\\
+\hline
+\only<1-6>{
+$(3,3)$-jaula &1 & 4&4\\
+$(3,4)$-jaula & 1 &6&6\\
+$(3,5)$-jaula & 1 &10&10\\
+$(3,6)$-jaula& 1  &14&14\\}
+$(3,7)$-jaula& 1  &22&24\\
+$(3,8)$-jaula& 1  &30&30\\
+\only<2-7>{ 
+\alert<2>{$(3,9)$-jaula}&18 & 46&58\\
+}\only<3-7>{ 
+\alert<3>{$(3,10)$-jaula}& 3 &62 &70\\
+}\only<4-7>{ 
+\alert<4>{$(3,11)$-jaula}& 1 & 94 &112\\
+}\only<5-7>{ 
+\alert<5>{$(3,12)$-jaula}& 1 & 126&126\\
+}\only<6-7>{ 
+\alert<6>{$(3,13)$-jaula}&1+&190[202]&272\\
+}\only<7>{ 
+$(3,14)$-jaula & 1+ & 254[258] & 384\\
+$(3,15)$-jaula & 1+ & 382 & 620\\
+$(3,16)$-jaula & 1+ & 510 & 960\\
+$(3,17)$-jaula & 1+ & 766 & 2176\\
+$(3,18)$-jaula & 1+ & 1022 & 2640\\
+$(3,19)$-jaula & 1+ & 1534 & 4324\\
+$(3,20)$-jaula & 1+ & 2046 & 6048\\
+$(3,21)$-jaula & 1+ & 3070 & 16028\\
+$(3,22)$-jaula & 1+ & 4094 & 16206\\
+%$(3,23)$-jaula & 1+ & 6142 & 49482\\
+}
+\end{tabular}
+\end{table}
+
 \only<2>{
 \begin{itemize}
 \item
@@ -1091,43 +1122,6 @@ fuera del árbol que tiene como base a $x$, son adyacentes.
 \end{itemize}
 }
 
-
-\begin{table}
-\centering
-\begin{tabular}{cccc}
-\text{Jaula} & Cantidad & Cota de Moore & La más chica\\
-\hline
-\only<1-6>{
-$(3,3)$-jaula &1 & 4&4\\
-$(3,4)$-jaula & 1 &6&6\\
-$(3,5)$-jaula & 1 &10&10\\}
-$(3,6)$-jaula& 1  &14&14\\
-$(3,7)$-jaula& 1  &22&24\\
-$(3,8)$-jaula& 1  &30&30\\
-\pause 
-\alert<2>{$(3,9)$-jaula}&18 & 46&58\\
-\pause
-\alert<3>{$(3,10)$-jaula}& 3 &62 &70\\
-\pause
-\alert<4>{$(3,11)$-jaula}& 1 & 94 &112\\
-\pause
-\alert<5>{$(3,12)$-jaula}& 1 & 126&126\\
-\pause
-\alert<6>{$(3,13)$-jaula}&1+&190[202]&272\\
-\pause
-$(3,14)$-jaula & 1+ & 254[258] & 384\\
-$(3,15)$-jaula & 1+ & 382 & 620\\
-$(3,16)$-jaula & 1+ & 510 & 960\\
-$(3,17)$-jaula & 1+ & 766 & 2176\\
-$(3,18)$-jaula & 1+ & 1022 & 2640\\
-$(3,19)$-jaula & 1+ & 1534 & 4324\\
-$(3,20)$-jaula & 1+ & 2046 & 6048\\
-$(3,21)$-jaula & 1+ & 3070 & 16028\\
-$(3,22)$-jaula & 1+ & 4094 & 16206\\
-%$(3,23)$-jaula & 1+ & 6142 & 49482\\
-
-\end{tabular}
-\end{table}
 
 \end{frame}
 
@@ -1293,6 +1287,17 @@ Es cúbica:
 \end{center}
 \end{block}
 }
+\only<8>{
+\begin{block}{}
+\begin{center}
+No tiene cuello 5:
+\end{center}
+\end{block}
+\begin{alertblock}{Proposición}
+Una gráfica bipartita no tiene ciclos impares.
+\end{alertblock}
+}
+
 
 \only<4-7>{
 \begin{block}{}
@@ -1302,7 +1307,7 @@ No tiene cuello 4:
 \end{block}
 }
 
-\only<8-10>{
+\only<9-11>{
 \begin{block}{}
 \begin{center}
 No tiene cuello 6:
@@ -1310,7 +1315,12 @@ No tiene cuello 6:
 \end{block}
 }
 
-\only<11>{
+\only<12>{
+\begin{block}{}
+\begin{center}
+Por ser bipartita no tiene ciclos de longitud impar.
+\end{center}
+\end{block}
 \begin{block}{}
 \begin{center}
 Por lo tanto tiene cuello al menos 8.
@@ -1396,7 +1406,7 @@ Por lo tanto tiene cuello al menos 8.
 }
 
 
-\only<8-10>{
+\only<9-11>{
 \begin{columns}
 \column{.5\textwidth}
 %\column{.5}
@@ -1414,15 +1424,15 @@ Por lo tanto tiene cuello al menos 8.
 \draw (w1) node[below]{$b$};
 \draw (w2) node[below]{$c$};
     \Edges(v0,w0,v1,w1,v2,w2,v0)
-\only<9>{\AddVertexColor{blue}{w0,w1}
+\only<10>{\AddVertexColor{blue}{w0,w1}
 }
-\only<10>{\AddVertexColor{blue}{w2}
+\only<11>{\AddVertexColor{blue}{w2}
 } 
  \end{tikzpicture}
 
-\only<9-10>{
+\only<10-11>{
 \column{.5\textwidth}
-\only<9>{
+\only<10>{
      \begin{tikzpicture}[scale=.8]
     \SetUpVertex[MinSize=3pt] \SetVertexNoLabel
     \grEmptyPath*[x=-2,y=0,RA=2,prefix=a]{,,}
@@ -1437,11 +1447,11 @@ Por lo tanto tiene cuello al menos 8.
     \draw(a1) node[above] {$a$};
     \draw(b1) node[right] {$b$};
 
-\only<9>{\AddVertexColor{blue}{a1,b1}}
+\only<10>{\AddVertexColor{blue}{a1,b1}}
 
   \end{tikzpicture}
 }  
-\only<10>{
+\only<11>{
      \begin{tikzpicture}[scale=.8]
     \SetUpVertex[MinSize=3pt] \SetVertexNoLabel
     \grEmptyPath*[x=-2,y=0,RA=2,prefix=a]{ ,, }
@@ -2145,7 +2155,7 @@ Vértices a distancia 3 de la identidad $=$ $4[(6)(4)]=4(24)=96$.
 \end{center}
 \end{frame}
 
-\section{Resultados}
+%\section{Resultados}
 
 \begin{frame}{Resultados}
 
