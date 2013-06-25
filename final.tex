@@ -24,6 +24,11 @@
 
 %\xcolor{dvipsnames}
 \usepackage{geometry}
+
+
+\usetikzlibrary{positioning,shapes,fit,arrows}
+\definecolor{myblue}{RGB}{56,94,141}
+
 %\geometry{bindingoffset=1cm}
 
 %\usepackage{color}
@@ -1482,7 +1487,32 @@ Una gráfica $B$ cúbica de cuello mayor o igual a
 8 es bipartita si y solo si  $B$ es isomorfa a la gráfica bipartita
 clánica de una gráfica $G$ localmente $3K_2$.  
 \end{alertblock}
+
+\only<1>{
+\begin{tikzpicture}[line width=1.5pt,>=latex]
+\sffamily
+
+\node (a1) {Gráficas bipartitas cúbicas};
+ \node[below=.1cm of a1] (a2) {de cuello al menos 8};
+\node[right=2cm of a1] (b1) {Gráfica bipartita clánica};
+\node[below=.1 cm of b1] (b2) {de una gráfica localmente $3K_2$};
+
+\node[shape=rectangle,draw=myblue,minimum size=3cm,fit={(-2.2,-1) (2.2,2)}] {}; 
+\node[shape=rectangle,draw=myblue,minimum size=3cm,fit={(3.5,-1) (8.4,2)}] {};
+
+ \SetUpVertex[MinSize=5pt]
+\SetVertexNoLabel{
+  \Vertex[x=0,y=1]{z0}
+  \Vertex[x=5.7,y=1]{z1}
+}
+
+\Edges[color=violet,style={<->,line width=2pt,bend left=15}](z0,z1)
+\end{tikzpicture}
+}
+
 \pause
+
+\only<2-8>{
 \begin{block}{}
 Sea $\Gamma$ la gráfica tal que:
 \begin{center}
@@ -1600,7 +1630,7 @@ Entonces $BK_\Gamma$ es la $(3,8)$-jaula.
 \end{block}
 }
 \end{alertblock}
-}
+}}
 \end{frame}
 
 \section{Gráficas de Cayley}
