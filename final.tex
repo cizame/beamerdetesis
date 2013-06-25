@@ -191,24 +191,24 @@ Sea $B$ una gráfica. Si existen subconjuntos no vacíos $X$ y $Y$ de
 \end{center}
 }
 }
-\only<2>{
-\begin{alertblock}{Gráfica bipartita completa: $K_{m,n}$}
-Sean $X$ y $Y$ conjuntos tales que forman una biparticion de una
-gráfica bipartita $B$. Si dado $x\in X$ para todo $y\in Y$ existe
-arista entre $x$ y $y$, se dice que $B$ es una gráfica bipartita completa.
- % Dados $m$ y $n$ números enteros mayores o iguales a uno, la gráfica bipartita completa $K_{m,n}$ se define
- %  como: $$K_{m,n}:=\overline{K_m \cup K_n}$$
-\end{alertblock}
+% \only<2>{
+% \begin{alertblock}{Gráfica bipartita completa: $K_{m,n}$}
+% Sean $X$ y $Y$ conjuntos tales que forman una bipartición de una
+% gráfica bipartita $B$. Si dado $x\in X$ para todo $y\in Y$ existe
+% arista entre $x$ y $y$, se dice que $B$ es una gráfica bipartita completa.
+%  % Dados $m$ y $n$ números enteros mayores o iguales a uno, la gráfica bipartita completa $K_{m,n}$ se define
+%  %  como: $$K_{m,n}:=\overline{K_m \cup K_n}$$
+% \end{alertblock}
 
-\begin{figure}
-  \begin{tikzpicture}
-    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
-%\tikzset{EdgeStyle/.append style = {green,line width=2pt}
-    \grCompleteBipartite[RA=3,RB=3,RS=3]{3}{3}
-\end{tikzpicture}
-  \caption{Bipartita completa $K_{3,3}$.}
-\end{figure}
-}
+% \begin{figure}
+%   \begin{tikzpicture}
+%     \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+% %\tikzset{EdgeStyle/.append style = {green,line width=2pt}
+%     \grCompleteBipartite[RA=3,RB=3,RS=3]{3}{3}
+% \end{tikzpicture}
+%   \caption{Bipartita completa $K_{3,3}$.}
+% \end{figure}
+% }
 
 \end{frame}
 
@@ -868,8 +868,8 @@ fuera del árbol que tiene como base a $x$, son adyacentes.
 %    \draw(-3.2,.3) node {Primer rama}; \draw(0,.6) node {Segunda
  %     rama}; \draw(3.2,.3) node {Tercer rama}; \draw(0,-.5) node {x};
   \end{tikzpicture}
-\only<4>{
-  \caption{Jaula encontrada por McGee.} \label{jaula(3,7)}}
+% \only<4>{
+%   \caption{Jaula encontrada por McGee.} \label{jaula(3,7)}}
 \end{figure}
 
 \end{frame}
@@ -1090,42 +1090,43 @@ $(3,22)$-jaula & 1+ & 4094 & 16206\\
 \end{tabular}
 \end{table}
 
-\only<2>{
-\begin{itemize}
-\item
-{Biggs y Hoare}
-\item
-{ Brendan McCay}
-\item
-{Brinkmann y Saager}
-\end{itemize}
-}
+
+% \only<2>{
+% \begin{itemize}
+% \item
+% {Biggs y Hoare}
+% \item
+% { Brendan McCay}
+% \item
+% {Brinkmann y Saager}
+% \end{itemize}
+% }
 
 
-\only<3>{
-\begin{itemize}
-\item
-{M. O'Keefe y P.K. Wong}
-\end{itemize}
-}
+% \only<3>{
+% \begin{itemize}
+% \item
+% {M. O'Keefe y P.K. Wong}
+% \end{itemize}
+% }
 
 
-\only<4>{
-\begin{itemize}
-\item
-{Brendan McKay y Wendy Myrvold}
+% \only<4>{
+% \begin{itemize}
+% \item
+% {Brendan McKay y Wendy Myrvold}
 
-\end{itemize}
-}
+% \end{itemize}
+% }
 
 
-\only<6>{
-\begin{itemize}
-\item
-{Brendan McKay y Wendy Myrvold}
-\item{Miles Whitehead}
-\end{itemize}
-}
+% \only<6>{
+% \begin{itemize}
+% \item
+% {Brendan McKay y Wendy Myrvold}
+% \item{Miles Whitehead}
+% \end{itemize}
+% }
 
 
 \end{frame}
@@ -1215,8 +1216,6 @@ Sea $Cl_G:=\{H \mid H$ es un clan de una gráfica $G \}$. Se define
   $y$ es un clan de $G$, tales que $x\in y$ o viceversa.
 \end{alertblock}
 
-
-\pause
 \begin{center}
   \begin{minipage}[c]{.3\linewidth}
     \centering
@@ -1262,16 +1261,16 @@ Sea $Cl_G:=\{H \mid H$ es un clan de una gráfica $G \}$. Se define
 
 \begin{frame}
 \begin{alertblock}{Gráfica localmente $3K_2$}
-  Una gráfica $G$ es conocida como localmente $3K_2$ si es de vecindad
-  constante y además la subgráfica de $G$ inducida por los vecinos de $x$
-  es isomorfa a la unión disjunta de tres copias de la gráfica
-  completa $K_{2}$, para todo $x\in V(G)$.
+  Una gráfica $G$ es conocida como localmente $3K_2$ si la subgráfica
+  de $G$ inducida por los vecinos de $x$ es isomorfa a la unión
+  disjunta de tres copias de la gráfica completa $K_{2}$, para todo
+  $x\in V(G)$.
 \end{alertblock}
 
 \begin{center}
 \begin{tikzpicture}[scale=0.6]
     \SetUpVertex[MinSize=10pt] \SetVertexNoLabel {
-      \grEmptyCycle[prefix=v,RA=3]{6} \Vertex[x=-0,y=0]{w0} }
+    \grEmptyCycle[prefix=v,RA=3]{6} \Vertex[x=-0,y=0]{w0} }
     \Edges(w0,v1,v2,w0,v3,v4,w0,v5,v0,w0)
  \draw(w0) node {$x$};
   \end{tikzpicture}
@@ -1285,211 +1284,213 @@ Sea $Cl_G:=\{H \mid H$ es un clan de una gráfica $G \}$. Se define
 La gráfica bipartita clánica asociada a una gráfica localmente $3K_2$
  es cúbica y tiene cuello al menos 8.
 \end{alertblock}
-\only<2,3>{
-\begin{block}{}
-\begin{center}
-Es cúbica:
-\end{center}
-\end{block}
-}
-
-\only<4>{
-\begin{block}{}
-\begin{center}
-No tiene ciclos de longitud impar:
-\end{center}
-\end{block}
-\begin{alertblock}{Proposición}
-Una gráfica bipartita no tiene ciclos de longitud impar.
-\end{alertblock}
-}
 
 
-\only<5-8>{
-\begin{block}{}
-\begin{center}
-No tiene cuello 4:
-\end{center}
-\end{block}
-}
+% \only<2,3>{
+% \begin{block}{}
+% \begin{center}
+% Es cúbica:
+% \end{center}
+% \end{block}
+% }
 
-\only<9-11>{
-\begin{block}{}
-\begin{center}
-No tiene cuello 6:
-\end{center}
-\end{block}
-}
+% \only<4>{
+% \begin{block}{}
+% \begin{center}
+% No tiene ciclos de longitud impar:
+% \end{center}
+% \end{block}
+% \begin{alertblock}{Proposición}
+% Una gráfica bipartita no tiene ciclos de longitud impar.
+% \end{alertblock}
+% }
 
-\only<12>{
-\begin{block}{}
-\begin{center}
-Por ser bipartita no tiene ciclos de longitud impar.
-\end{center}
-\end{block}
-\begin{block}{}
-\begin{center}
-Por lo tanto tiene cuello al menos 8.
-\end{center}
-\end{block}
-}
 
-\only<2-3>{
-\begin{center}
-\begin{tikzpicture}[scale=0.6]
-    \SetUpVertex[MinSize=10pt] \SetVertexNoLabel {
-      \grEmptyCycle[prefix=v,RA=3]{6} \Vertex[x=-0,y=0]{w0} }
-    \Edges(w0,v1,v2,w0,v3,v4,w0,v5,v0,w0)
- \draw(w0) node {$x$};
-\only<2>{\AddVertexColor{blue}{w0}
-    \Edges[color=violet,style={line width=2pt}](w0,v1,v2,w0,v3,v4,w0,v5,v0,w0)
-    }
-\only<3>{
- \Edges[color=violet,style={line width=2pt}](w0,v1,v2,w0)
-\AddVertexColor{blue}{w0,v1,v2}
-}
-\
-  \end{tikzpicture}
-\end{center}
-}
+% \only<5-8>{
+% \begin{block}{}
+% \begin{center}
+% No tiene cuello 4:
+% \end{center}
+% \end{block}
+% }
 
-\only<5-8>{
-\begin{columns}
-\column{.5\textwidth}
-\centering
- \begin{tikzpicture}[scale=1]
-    \SetUpVertex[MinSize=2pt]
-\SetVertexNoLabel{
-    \grEmptyPath*[x=-2,y=0,RA=3,prefix=w,Math]{a,b}
-    \grEmptyPath*[x=-2,y=1.5,RA=3,prefix=v]{,}
-}
-\draw (v0) node[above]{$T_1$};
-\draw (v1) node[above]{$T_2$};
-\draw (w0) node[below]{$a$};
-\draw (w1) node[below]{$b$};
+% \only<9-11>{
+% \begin{block}{}
+% \begin{center}
+% No tiene cuello 6:
+% \end{center}
+% \end{block}
+% }
 
-    \Edges(v0,w0,v1,w1,v0)
-\only<6>{\AddVertexColor{violet}{v0,v1}
-\AddVertexColor{blue}{w0}
-    }
-\only<7>{\AddVertexColor{violet}{v0,v1}
-\AddVertexColor{blue}{w1}
-    }
-  \end{tikzpicture}
-\only<6-8>{
-\column{.5\textwidth}
-%\column{.5}
-\centering
-  \begin{tikzpicture}[scale=.8]
-    \SetUpVertex[MinSize=3pt]%
+% \only<12>{
+% \begin{block}{}
+% \begin{center}
+% Por ser bipartita no tiene ciclos de longitud impar.
+% \end{center}
+% \end{block}
+% \begin{block}{}
+% \begin{center}
+% Por lo tanto tiene cuello al menos 8.
+% \end{center}
+% \end{block}
+% }
 
-    \grEmptyPath*[x=-1.8,y=0,RA=3.6,prefix=a,Math]{,}
- \SetVertexNoLabel{
-    \Vertex[x=0,y=1.3]{b} \Vertex[x=0,y=-1.3]{c}
-}
-    \Edges[color=violet](a0,b,a1,c,a0)
-\only<6,7>{    
-\Edge[style={bend right=8},color=violet](a0)(a1) \Edge[style={bend
-      right=8},color=violet](a1)(a0)
-}
+% \only<2-3>{
+% \begin{center}
+% \begin{tikzpicture}[scale=0.6]
+%     \SetUpVertex[MinSize=10pt] \SetVertexNoLabel {
+%       \grEmptyCycle[prefix=v,RA=3]{6} \Vertex[x=-0,y=0]{w0} }
+%     \Edges(w0,v1,v2,w0,v3,v4,w0,v5,v0,w0)
+%  \draw(w0) node {$x$};
+% \only<2>{\AddVertexColor{blue}{w0}
+%     \Edges[color=violet,style={line width=2pt}](w0,v1,v2,w0,v3,v4,w0,v5,v0,w0)
+%     }
+% \only<3>{
+%  \Edges[color=violet,style={line width=2pt}](w0,v1,v2,w0)
+% \AddVertexColor{blue}{w0,v1,v2}
+% }
+% \
+%   \end{tikzpicture}
+% \end{center}
+% }
 
-\only<8>{
-\Edge[color=violet](a0)(a1) 
-}
-    \draw(0,.6) node {$T_1$}; \draw(0,-.7) node {$T_2$};
-  \draw(a0) node[below left] {$a$};
-  \draw(a1) node[below right] {$b$};
+% \only<5-8>{
+% \begin{columns}
+% \column{.5\textwidth}
+% \centering
+%  \begin{tikzpicture}[scale=1]
+%     \SetUpVertex[MinSize=2pt]
+% \SetVertexNoLabel{
+%     \grEmptyPath*[x=-2,y=0,RA=3,prefix=w,Math]{a,b}
+%     \grEmptyPath*[x=-2,y=1.5,RA=3,prefix=v]{,}
+% }
+% \draw (v0) node[above]{$T_1$};
+% \draw (v1) node[above]{$T_2$};
+% \draw (w0) node[below]{$a$};
+% \draw (w1) node[below]{$b$};
+
+%     \Edges(v0,w0,v1,w1,v0)
+% \only<6>{\AddVertexColor{violet}{v0,v1}
+% \AddVertexColor{blue}{w0}
+%     }
+% \only<7>{\AddVertexColor{violet}{v0,v1}
+% \AddVertexColor{blue}{w1}
+%     }
+%   \end{tikzpicture}
+% \only<6-8>{
+% \column{.5\textwidth}
+% %\column{.5}
+% \centering
+%   \begin{tikzpicture}[scale=.8]
+%     \SetUpVertex[MinSize=3pt]%
+
+%     \grEmptyPath*[x=-1.8,y=0,RA=3.6,prefix=a,Math]{,}
+%  \SetVertexNoLabel{
+%     \Vertex[x=0,y=1.3]{b} \Vertex[x=0,y=-1.3]{c}
+% }
+%     \Edges[color=violet](a0,b,a1,c,a0)
+% \only<6,7>{    
+% \Edge[style={bend right=8},color=violet](a0)(a1) \Edge[style={bend
+%       right=8},color=violet](a1)(a0)
+% }
+
+% \only<8>{
+% \Edge[color=violet](a0)(a1) 
+% }
+%     \draw(0,.6) node {$T_1$}; \draw(0,-.7) node {$T_2$};
+%   \draw(a0) node[below left] {$a$};
+%   \draw(a1) node[below right] {$b$};
   
-\only<6>{
-\AddVertexColor{blue}{a0}
-}
-\only<7>{
-\AddVertexColor{blue}{a1}
-}
-\end{tikzpicture}
-}
-\end{columns}
-}
+% \only<6>{
+% \AddVertexColor{blue}{a0}
+% }
+% \only<7>{
+% \AddVertexColor{blue}{a1}
+% }
+% \end{tikzpicture}
+% }
+% \end{columns}
+% }
 
 
-\only<9-11>{
-\begin{columns}
-\column{.5\textwidth}
-%\column{.5}
-\centering 
- \begin{tikzpicture}[scale=.7]
-    \SetUpVertex[MinSize=2pt]
-\SetVertexNoLabel{
-    \grEmptyPath*[x=-2,y=0,RA=3,prefix=w,Math]{a,b,c}
-    \grEmptyPath*[x=-2,y=1.5,RA=3,prefix=v]{,,}
-}
-\draw (v0) node[above]{$T_1$};
-\draw (v1) node[above]{$T_2$};
-\draw (v2) node[above]{$T_3$};
-\draw (w0) node[below]{$a$};
-\draw (w1) node[below]{$b$};
-\draw (w2) node[below]{$c$};
-    \Edges(v0,w0,v1,w1,v2,w2,v0)
-\only<10>{\AddVertexColor{blue}{w0,w1}
-}
-\only<11>{\AddVertexColor{blue}{w2}
-} 
- \end{tikzpicture}
+% \only<9-11>{
+% \begin{columns}
+% \column{.5\textwidth}
+% %\column{.5}
+% \centering 
+%  \begin{tikzpicture}[scale=.7]
+%     \SetUpVertex[MinSize=2pt]
+% \SetVertexNoLabel{
+%     \grEmptyPath*[x=-2,y=0,RA=3,prefix=w,Math]{a,b,c}
+%     \grEmptyPath*[x=-2,y=1.5,RA=3,prefix=v]{,,}
+% }
+% \draw (v0) node[above]{$T_1$};
+% \draw (v1) node[above]{$T_2$};
+% \draw (v2) node[above]{$T_3$};
+% \draw (w0) node[below]{$a$};
+% \draw (w1) node[below]{$b$};
+% \draw (w2) node[below]{$c$};
+%     \Edges(v0,w0,v1,w1,v2,w2,v0)
+% \only<10>{\AddVertexColor{blue}{w0,w1}
+% }
+% \only<11>{\AddVertexColor{blue}{w2}
+% } 
+%  \end{tikzpicture}
 
-\only<10-11>{
-\column{.5\textwidth}
-\only<10>{
-     \begin{tikzpicture}[scale=.8]
-    \SetUpVertex[MinSize=3pt] \SetVertexNoLabel
-    \grEmptyPath*[x=-2,y=0,RA=2,prefix=a]{,,}
-    %\AssignVertexLabel{a}{,$a$,}
-    \grEmptyPath*[x=-1,y=-1.8,RA=2,prefix=b]{,}
-    %\AssignVertexLabel{b}{,$b$}
-    \grEmptyPath[x=0,y=-3.6,RA=2,prefix=c]{2}
-    \Edges(a0,a1,a2,b1,c1,c0,b1,a1,b0,a0)
+% \only<10-11>{
+% \column{.5\textwidth}
+% \only<10>{
+%      \begin{tikzpicture}[scale=.8]
+%     \SetUpVertex[MinSize=3pt] \SetVertexNoLabel
+%     \grEmptyPath*[x=-2,y=0,RA=2,prefix=a]{,,}
+%     %\AssignVertexLabel{a}{,$a$,}
+%     \grEmptyPath*[x=-1,y=-1.8,RA=2,prefix=b]{,}
+%     %\AssignVertexLabel{b}{,$b$}
+%     \grEmptyPath[x=0,y=-3.6,RA=2,prefix=c]{2}
+%     \Edges(a0,a1,a2,b1,c1,c0,b1,a1,b0,a0)
  
-    \draw(-1,-0.7) node {$T_1$}; \draw(1,-0.7) node {$T_2$};
-    \draw(1,-3.1) node {$T_3$};
-    \draw(a1) node[above] {$a$};
-    \draw(b1) node[right] {$b$};
+%     \draw(-1,-0.7) node {$T_1$}; \draw(1,-0.7) node {$T_2$};
+%     \draw(1,-3.1) node {$T_3$};
+%     \draw(a1) node[above] {$a$};
+%     \draw(b1) node[right] {$b$};
 
-\only<10>{\AddVertexColor{blue}{a1,b1}}
+% \only<10>{\AddVertexColor{blue}{a1,b1}}
 
-  \end{tikzpicture}
-}  
-\only<11>{
-     \begin{tikzpicture}[scale=.8]
-    \SetUpVertex[MinSize=3pt] \SetVertexNoLabel
-    \grEmptyPath*[x=-2,y=0,RA=2,prefix=a]{ ,, }
-   % \AssignVertexLabel{a}{,$a$,}
-    \grEmptyPath*[x=-1,y=-1.8,RA=2,prefix=b]{,}
-    \grEmptyPath[x=0,y=-3.6,RA=2,prefix=c]{1}
-    \Edges(a0,a1,a2,b1,c0,b0,b1,a1,b0,a0) %\AssignVertexLabel{b}{$c$,$b$}
+%   \end{tikzpicture}
+% }  
+% \only<11>{
+%      \begin{tikzpicture}[scale=.8]
+%     \SetUpVertex[MinSize=3pt] \SetVertexNoLabel
+%     \grEmptyPath*[x=-2,y=0,RA=2,prefix=a]{ ,, }
+%    % \AssignVertexLabel{a}{,$a$,}
+%     \grEmptyPath*[x=-1,y=-1.8,RA=2,prefix=b]{,}
+%     \grEmptyPath[x=0,y=-3.6,RA=2,prefix=c]{1}
+%     \Edges(a0,a1,a2,b1,c0,b0,b1,a1,b0,a0) %\AssignVertexLabel{b}{$c$,$b$}
     
-    \draw(-1,-0.8) node[above] {$T_1$}; \draw(1,-0.8) node[above] {$T_2$};
-    \draw(0,-2.8) node [above]{$T_3$};
-\draw(a1) node [above]{$a$};
-\draw(b1) node [right]{$b$};
-\draw(b0) node [left]{$c$};
-\AddVertexColor{blue}{b0}
-  \end{tikzpicture}
-}
-}
- \end{columns}
-}
+%     \draw(-1,-0.8) node[above] {$T_1$}; \draw(1,-0.8) node[above] {$T_2$};
+%     \draw(0,-2.8) node [above]{$T_3$};
+% \draw(a1) node [above]{$a$};
+% \draw(b1) node [right]{$b$};
+% \draw(b0) node [left]{$c$};
+% \AddVertexColor{blue}{b0}
+%   \end{tikzpicture}
+% }
+% }
+%  \end{columns}
+% }
 
 \end{frame}
 
 
 \begin{frame}
-
+\only<1>{
 \begin{alertblock}{Teorema}
 Una gráfica $B$ cúbica de cuello mayor o igual a
 8 es bipartita si y solo si  $B$ es isomorfa a la gráfica bipartita
 clánica de una gráfica $G$ localmente $3K_2$.  
 \end{alertblock}
 
-\only<1>{
+
 \begin{tikzpicture}[line width=1.5pt,>=latex]
 \sffamily
 
@@ -1513,7 +1514,7 @@ clánica de una gráfica $G$ localmente $3K_2$.
 
 \pause
 
-\only<2-8>{
+\only<2-6>{
 \begin{block}{}
 Sea $\Gamma$ la gráfica tal que:
 \begin{center}
@@ -1526,7 +1527,7 @@ $E(\Gamma)=\{\{x,y\}\subseteq V(\Gamma) \mid x\cap y=\emptyset \} $
 \end{center}
 \end{block}
 
-\only<2-4>{
+\only<2>{
 \begin{center}
 %  \centering
   \begin{tikzpicture}[scale=0.5,rotate=90]
@@ -1534,10 +1535,10 @@ $E(\Gamma)=\{\{x,y\}\subseteq V(\Gamma) \mid x\cap y=\emptyset \} $
     \SetVertexNoLabel{\grEmptyCycle[prefix=v,RA=3]{15}}
     \draw (v0) node[above]{$(12)$};
 \only<2>{\AddVertexColor{cyan}{v0,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,v14}}
-\only<3>{\AddVertexColor{black}{v0}}
-\only<4>{\AddVertexColor{black}{v1}}
+% \only<3>{\AddVertexColor{black}{v0}}
+% \only<4>{\AddVertexColor{black}{v1}}
 
-\only<2-4>{
+\only<2>{
 \draw (v1) node[left]{$(13)$};
 \draw (v2) node[ left]{$(14)$};
 \draw (v3) node[left]{$(15)$};
@@ -1562,19 +1563,19 @@ $E(\Gamma)=\{\{x,y\}\subseteq V(\Gamma) \mid x\cap y=\emptyset \} $
 % \AddVertexColor{blue}{v1,v2,v3,v4,v11,v12,v13,v14}}
 
 
-\only<3>{
-\AddVertexColor{violet}{v5,v6,v7,v8,v9,v10}
-\Edges[color=Violet](v5,v0,v6)
-\Edges[color=Violet](v7,v0,v8)
-\Edges[color=Violet](v9,v0,v10)
-}
+% \only<3>{
+% \AddVertexColor{violet}{v5,v6,v7,v8,v9,v10}
+% \Edges[color=Violet](v5,v0,v6)
+% \Edges[color=Violet](v7,v0,v8)
+% \Edges[color=Violet](v9,v0,v10)
+% }
 
-\only<4>{
-\AddVertexColor{violet}{v8,v9,v10,v11,v12,v13}
-\Edges[color=Violet](v8,v1,v9)
-\Edges[color=Violet](v10,v1,v11)
-\Edges[color=Violet](v12,v1,v13)
-}
+% \only<4>{
+% \AddVertexColor{violet}{v8,v9,v10,v11,v12,v13}
+% \Edges[color=Violet](v8,v1,v9)
+% \Edges[color=Violet](v10,v1,v11)
+% \Edges[color=Violet](v12,v1,v13)
+% }
 %\AddVertexColor{}{}
 
   \end{tikzpicture}
@@ -1582,7 +1583,7 @@ $E(\Gamma)=\{\{x,y\}\subseteq V(\Gamma) \mid x\cap y=\emptyset \} $
 }
 
 
-\only<5-6>{
+\only<3-4>{
 \begin{center}
 %  \centering
   \begin{tikzpicture}[scale=.65]
@@ -1595,7 +1596,7 @@ $E(\Gamma)=\{\{x,y\}\subseteq V(\Gamma) \mid x\cap y=\emptyset \} $
 \Edges[color=Violet,style={line width=1.5pt}](v1,w0,v2)
 \Edges[color=Violet,style={line width=1.5pt}](v3,w0,v4)
 
-\only<6>{
+\only<4>{
 \Edges[color=Violet,style={line width=1.5pt}](v0,v5)
 \Edges[color=Violet,style={line width=1.5pt}](v1,v2)
 \Edges[color=Violet,style={line width=1.5pt}](v3,v4)
@@ -1611,7 +1612,7 @@ $E(\Gamma)=\{\{x,y\}\subseteq V(\Gamma) \mid x\cap y=\emptyset \} $
 \end{center}
 }
 
-\only<7,8>{
+\only<5,6>{
 
 \begin{alertblock}{Gráfica bipartita clánica de $\Gamma$:= $BK_{\Gamma}$}
 \begin{itemize}
@@ -1623,15 +1624,18 @@ $E(\Gamma)=\{\{x,y\}\subseteq V(\Gamma) \mid x\cap y=\emptyset \} $
   ciclos de longitud 8.
 \end{itemize}
 \end{itemize}
-\only<8>{
+
+\end{alertblock}
+\only<6>{
 \begin{block}{}
 \begin{center}
 Entonces $BK_\Gamma$ es la $(3,8)$-jaula.
 \end{center}
 \end{block}
 }
-\end{alertblock}
-}}
+}
+
+}
 \end{frame}
 
 \section{Gráficas de Cayley}
@@ -1738,13 +1742,13 @@ Entonces $BK_\Gamma$ es la $(3,8)$-jaula.
 
 
 \begin{frame}
-\only<1-5>{
+\only<1-3>{
 \begin{alertblock}{Proposición}
   Sea $n$ el orden de una gráfica $\Gamma$. Entonces, el conjunto
-  de todos los automorfismos de $\Gamma$ es un subgrupo de $S_n$,
+  de todos los automorfismos de $\Gamma$ es un \alert{subgrupo de $S_n$},
   denotado $\Aut(\Gamma)$, y llamado grupo de automorfismos de $\Gamma$.
 \end{alertblock}
-\only<2-5>{
+\only<2-3>{
 \begin{columns}
 \centering
 \column{.3\textwidth}
@@ -1762,13 +1766,13 @@ Entonces $BK_\Gamma$ es la $(3,8)$-jaula.
 %\Edges(v1,v3,v5,v1)
 \end{tikzpicture}
 \end{center}
-\only<3-5>{
+\only<3>{
 \column{.65\textwidth}
 \begin{block}{Automorfismos}
 \begin{columns}
 \column{.3\textwidth}
 %\centering
-\only<3-5>{
+\only<3>{
 \begin{itemize}
 \item (1234)
 \item (13)(24)
@@ -1776,14 +1780,14 @@ Entonces $BK_\Gamma$ es la $(3,8)$-jaula.
 \end{itemize}}
 \column{.2\textwidth}
 %\centering
-\only<4-5>{
+\only<3>{
 \begin{itemize}
 \item (13)
 \item (24)
 \end{itemize}}
 \column{.3\textwidth}
 %\centering
-\only<5>{
+\only<3>{
 \begin{itemize}
 \item (12)(34)
 \item (14)(23)
@@ -1797,7 +1801,7 @@ Entonces $BK_\Gamma$ es la $(3,8)$-jaula.
 }
 }
 
-\only<6-8>{
+\only<4-6>{
 \begin{alertblock}{Vértice-transitiva}
   Una gráfica $G$ es vértice-transitiva si para todos $v_1, v_2 \in
   V(G)$ existe un automorfismo $\phi$ tal que $\phi(v_1)= v_2$.
@@ -1810,10 +1814,10 @@ Entonces $BK_\Gamma$ es la $(3,8)$-jaula.
     \grCycle[RA=1.5,prefix=v]{6}
 \Edges(v0,v2,v4,v0)
 \Edges(v1,v3,v5,v1)
-\only<7>{\AddVertexColor{Mulberry}{v0,v2}}
+\only<5>{\AddVertexColor{Mulberry}{v0,v2}}
 \end{tikzpicture}
 \end{center}
-\only<8>{
+\only<6>{
 \begin{block}{}
 Las jaulas cúbicas de cuellos 3, 4, 5, 6 y 8 son vértice-transitivas.
 \end{block}
@@ -1879,51 +1883,50 @@ Sea $G$ el grupo de permutaciones $S_3$:
 \end{frame}
 
 
-\begin{frame}
+% \begin{frame}
 
-\begin{alertblock}{Gráfica conexa}
-Una gráfica $G$ es conexa si para todos $ u,v\in V(G)$ existe una sucesión de
-  $n$ vértices de la gráfica,
-  $v_1,...,v_n$, tal que $v_i\sim v_{i+1}$ para
-  $i=1,...,n-1$, donde $u=v_1$ y $v=v_n$.
-\end{alertblock}
+% \begin{alertblock}{Gráfica conexa}
+% Una gráfica $G$ es conexa si para todos $ u,v\in V(G)$ existe una sucesión de
+%   $n$ vértices de la gráfica,
+%   $v_1,...,v_n$, tal que $v_i\sim v_{i+1}$ para
+%   $i=1,...,n-1$, donde $u=v_1$ y $v=v_n$.
+% \end{alertblock}
 
-\begin{columns}
-\column{.4\textwidth} 
-  \begin{tikzpicture}[scale=.58]
-    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
-    \grCycle[RA=2,prefix=v,rotation=90]{6} \draw (v0) node
-    [above]{$(1)$}; \draw (v1) node [left]{$(13)$}; \draw (v2) node
-    [left]{$(123)$}; \draw (v3) node [below]{$(23)$}; \draw (v4) node
-    [right]{$(132)$}; \draw (v5) node [right]{$(12)$};
-  \end{tikzpicture}
-\begin{block}{}
-\begin{center}
-Gráfica conexa
-\end{center}
-\end{block}
-\column{.4\textwidth} 
-  \begin{tikzpicture}[scale=.8]
-    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
-    \grEmptyPath[x=0,y=0,RA=2,prefix=w]{3}
-    \grEmptyPath[x=1,y=2.9,RA=2,prefix=v]{3} \Edges(v0,w0) \Edges(v1,w1)
-    \Edges(v2,w2)
-    \draw (v0) node[above left]{$(1)$};
-    \draw (w0) node[below right]{$(12)$};
-    \draw (v1) node[above left]{$(13)$}; 
-    \draw (w1) node[below right]{$(123)$};
-    \draw (v2) node[above left]{$(23)$};
-    \draw (w2) node[below right]{$(132)$};
-  \end{tikzpicture}
-\begin{block}{}
-\begin{center}
-Gráfica no conexa
-\end{center}
-\end{block}
+% \begin{columns}
+% \column{.4\textwidth} 
+%   \begin{tikzpicture}[scale=.58]
+%     \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%     \grCycle[RA=2,prefix=v,rotation=90]{6} \draw (v0) node
+%     [above]{$(1)$}; \draw (v1) node [left]{$(13)$}; \draw (v2) node
+%     [left]{$(123)$}; \draw (v3) node [below]{$(23)$}; \draw (v4) node
+%     [right]{$(132)$}; \draw (v5) node [right]{$(12)$};
+%   \end{tikzpicture}
+% \begin{block}{}
+% \begin{center}
+% Gráfica conexa
+% \end{center}
+% \end{block}
+% \column{.4\textwidth} 
+%   \begin{tikzpicture}[scale=.8]
+%     \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%     \grEmptyPath[x=0,y=0,RA=2,prefix=w]{3}
+%     \grEmptyPath[x=1,y=2.9,RA=2,prefix=v]{3} \Edges(v0,w0) \Edges(v1,w1)
+%     \Edges(v2,w2)
+%     \draw (v0) node[above left]{$(1)$};
+%     \draw (w0) node[below right]{$(12)$};
+%     \draw (v1) node[above left]{$(13)$}; 
+%     \draw (w1) node[below right]{$(123)$};
+%     \draw (v2) node[above left]{$(23)$};
+%     \draw (w2) node[below right]{$(132)$};
+%   \end{tikzpicture}
+% \begin{block}{}
+% \begin{center}
+% Gráfica no conexa
+% \end{center}
+% \end{block}
 
-\end{columns}
-
-\end{frame}
+% \end{columns}
+%\end{frame}
 
 
 
@@ -2099,7 +2102,7 @@ del grupo $G$}.
 
 \only<3>{
 
-\node[right=4cm of a1] (b1) {Graficas};
+\node[right=4cm of a1] (b1) {Gráficas};
 \node[below=.1 cm of b1] (b2) {de};
 \node[below=.1 cm of b2] (b3) {Cayley};
 
