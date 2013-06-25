@@ -1292,19 +1292,20 @@ Es cúbica:
 \end{center}
 \end{block}
 }
-\only<8>{
+
+\only<4>{
 \begin{block}{}
 \begin{center}
-No tiene cuello 5:
+No tiene ciclos de longitud impar:
 \end{center}
 \end{block}
 \begin{alertblock}{Proposición}
-Una gráfica bipartita no tiene ciclos impares.
+Una gráfica bipartita no tiene ciclos de longitud impar.
 \end{alertblock}
 }
 
 
-\only<4-7>{
+\only<5-8>{
 \begin{block}{}
 \begin{center}
 No tiene cuello 4:
@@ -1352,7 +1353,7 @@ Por lo tanto tiene cuello al menos 8.
 \end{center}
 }
 
-\only<4-7>{
+\only<5-8>{
 \begin{columns}
 \column{.5\textwidth}
 \centering
@@ -1368,14 +1369,14 @@ Por lo tanto tiene cuello al menos 8.
 \draw (w1) node[below]{$b$};
 
     \Edges(v0,w0,v1,w1,v0)
-\only<5>{\AddVertexColor{violet}{v0,v1}
+\only<6>{\AddVertexColor{violet}{v0,v1}
 \AddVertexColor{blue}{w0}
     }
-\only<6>{\AddVertexColor{violet}{v0,v1}
+\only<7>{\AddVertexColor{violet}{v0,v1}
 \AddVertexColor{blue}{w1}
     }
   \end{tikzpicture}
-\only<5-7>{
+\only<6-8>{
 \column{.5\textwidth}
 %\column{.5}
 \centering
@@ -1387,22 +1388,22 @@ Por lo tanto tiene cuello al menos 8.
     \Vertex[x=0,y=1.3]{b} \Vertex[x=0,y=-1.3]{c}
 }
     \Edges[color=violet](a0,b,a1,c,a0)
-\only<5,6>{    
+\only<6,7>{    
 \Edge[style={bend right=8},color=violet](a0)(a1) \Edge[style={bend
       right=8},color=violet](a1)(a0)
 }
 
-\only<7>{
+\only<8>{
 \Edge[color=violet](a0)(a1) 
 }
     \draw(0,.6) node {$T_1$}; \draw(0,-.7) node {$T_2$};
   \draw(a0) node[below left] {$a$};
   \draw(a1) node[below right] {$b$};
   
-\only<5>{
+\only<6>{
 \AddVertexColor{blue}{a0}
 }
-\only<6>{
+\only<7>{
 \AddVertexColor{blue}{a1}
 }
 \end{tikzpicture}
@@ -1516,12 +1517,12 @@ clánica de una gráfica $G$ localmente $3K_2$.
 \begin{block}{}
 Sea $\Gamma$ la gráfica tal que:
 \begin{center}
-\begin{enumerate}
+\begin{itemize}
 \item
 $V(\Gamma)=\{ \{a,b\} \mid a,b\in\{1,2,...,6\}, a\neq b\}$
 \item
 $E(\Gamma)=\{\{x,y\}\subseteq V(\Gamma) \mid x\cap y=\emptyset \} $
-\end{enumerate}
+\end{itemize}
 \end{center}
 \end{block}
 
@@ -1532,7 +1533,7 @@ $E(\Gamma)=\{\{x,y\}\subseteq V(\Gamma) \mid x\cap y=\emptyset \} $
     \SetUpVertex[MinSize=.1pt]
     \SetVertexNoLabel{\grEmptyCycle[prefix=v,RA=3]{15}}
     \draw (v0) node[above]{$(12)$};
-
+\only<2>{\AddVertexColor{cyan}{v0,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,v14}}
 \only<3>{\AddVertexColor{black}{v0}}
 \only<4>{\AddVertexColor{black}{v1}}
 
