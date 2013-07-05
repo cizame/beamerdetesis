@@ -602,12 +602,21 @@ Subgráfica de una gráfica 3-regular con cuello par.
 
 % \grSubtreeOfCage[RA=3.2,RB=1.6]{3}{4} 
 
-\VertexM[xa=-2,ya=0,xb=3*cos(234),yb=3*sin(234),shows=1,starts=7,stops=30]{a0;0}
-\VertexM[xa=2,ya=0,xb=3*cos(234),yb=3*sin(234),shows=1,starts=7,stops=30]{a0;1}
-\VertexM[xa=-3,ya=2,xb=3*cos(234),yb=3*sin(234),shows=1,starts=7,stops=30]{a1;0}
-\VertexM[xa=-1,ya=2,xb=3*cos(234),yb=3*sin(234),shows=1,starts=7,stops=30]{a1;1}
-\VertexM[xa=1,ya=2,xb=3*cos(234),yb=3*sin(234),shows=1,starts=7,stops=30]{a1;2}
-\VertexM[xa=3,ya=2,xb=3*cos(234),yb=3*sin(234),shows=1,starts=7,stops=30]{a1;3}
+\VertexM[xa=-2,ya=0,xb=-3,yb=0,shows=1,starts=7,stops=30]{a0;0}
+\VertexM[xa=2,ya=0,xb=3,yb=3,shows=1,starts=7,stops=30]{a0;1}
+\VertexM[xa=-3,ya=2,xb=-3,yb=3,shows=1,starts=7,stops=30]{a1;0}
+\VertexM[xa=-1,ya=2,xb=0,yb=3,shows=1,starts=7,stops=30]{a1;1}
+\VertexM[xa=1,ya=2,xb=0,yb=0,shows=1,starts=7,stops=30]{a1;2}
+\VertexM[xa=3,ya=2,xb=3,yb=0,shows=1,starts=7,stops=30]{a1;3}
+
+
+  {\Edge[color=myblue](a0;0)(a0;1)}
+  {\Edge[color=myblue](a1;0)(a0;0)}
+  {\Edge[color=myblue](a1;1)(a0;0)}
+  {\Edge[color=myblue](a1;2)(a0;1)}
+  {\Edge[color=myblue](a1;3)(a0;1)}
+  % {\Edge[color=myblue](a1;1)(a0;0)}
+  % {\Edge[color=myblue](a1;1)(a0;0)}
 
 
 
@@ -634,22 +643,23 @@ Subgráfica de una gráfica 3-regular con cuello par.
   \end{tikzpicture}
 %  \caption{} \label{arbol(3,4)}
 \end{figure}
-\only<5>{
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[scale=.7]
-    \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
-    \grCompleteBipartite[RA=3,RB=3,RS=3]{3}{3}
+
+% \only<5>{
+% \begin{figure}
+%   \centering
+%   \begin{tikzpicture}[scale=.7]
+%     \SetVertexNoLabel \SetUpVertex[MinSize=2pt]
+%     \grCompleteBipartite[RA=3,RB=3,RS=3]{3}{3}
   
- \draw (a0) node[below left]{$w_{0,0}$};
- \draw (a1) node[below left]{$c$};
-  \draw (a2) node[below left]{$d$};
- \draw (b0) node[above left]{$a$};
-\draw (b1) node[above left]{$b$};
-\draw (b2) node[above left]{$w_{0,1}$};
-\end{tikzpicture}
-%  \caption{Bipartita completa $K_{3,3}$.} \label{K_3,3}
-\end{figure}}
+%  \draw (a0) node[below left]{$w_{0,0}$};
+%  \draw (a1) node[below left]{$c$};
+%   \draw (a2) node[below left]{$d$};
+%  \draw (b0) node[above left]{$a$};
+% \draw (b1) node[above left]{$b$};
+% \draw (b2) node[above left]{$w_{0,1}$};
+% \end{tikzpicture}
+% %  \caption{Bipartita completa $K_{3,3}$.} \label{K_3,3}
+% \end{figure}}
 \end{frame}
 
 
